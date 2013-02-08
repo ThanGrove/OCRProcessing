@@ -326,8 +326,7 @@ def test():
   print sep
   
 ######### MAIN ROUTINE ##########
-#  Putting in its own function so it appears in editor toc
-
+#  Putting in its own function so it appears in editor toc 
 def main():
   # Get commandline parameters
   datafolder = '..{0}data{0}'.format(sep)
@@ -341,12 +340,17 @@ def main():
   
   # Instantiate the Peltsek Catalog
   cat = XMLCat(catpath, 'Peltsek')
-  #print "calling processNGBVolumes()"
-  #processNGBVolumes(cat, volfolder)
-  #test()
-  #createTextsFromVol(cat, fvolpath + volname, 3)
   
-  # Instantiate volume 3
+  #  OLD TESTING CODE
+    #print "calling processNGBVolumes()"
+    #processNGBVolumes(cat, volfolder)
+    #test()
+    #createTextsFromVol(cat, fvolpath + volname, 3)
+  
+  # Go through volume source folder and process each volume
+  # by iterating through each text and testing the start page to
+  # find which line the text starts on that page using a list of
+  # delimiters set in the OCRVol object.
   for f in os.listdir(volfolder):
     m = re.search('\-vol(\d+)\_', f)
     vnum = int(m.group(1))
@@ -357,21 +361,20 @@ def main():
       mystpg = t['start']
       print "{0}:{1}:{2}".format(t['key'], mystpg, vol.textStartLine(mystpg))
   
-  #print vol.textStartsAtTop(114)
-  
-  
-  #printEndPagesForVol(cat, 3, fvolpath + volname, fout)
-  
-  #t3 = cat.getText(28)
-  #txtrg = vol.getRange(t3.startpage + '.1', t3.endpage + '.6')
-  #fout = codecs.open(foutname, 'w', encoding='utf-8')
-  #fout.write(etree.tostring(txtrg, encoding=unicode))
-  #fout.close()
-  #print "Text {0} written to file.".format(t3.key)
-  #print tibToWylie(t3.title)  ## vol.getLine(141, 5)
-  
-  
-  #cat.getVolumeTOC(3)
+  # MORE OLD TESTING CODE
+    #print vol.textStartsAtTop(114)
+    
+    #printEndPagesForVol(cat, 3, fvolpath + volname, fout)
+    
+    #t3 = cat.getText(28)
+    #txtrg = vol.getRange(t3.startpage + '.1', t3.endpage + '.6')
+    #fout = codecs.open(foutname, 'w', encoding='utf-8')
+    #fout.write(etree.tostring(txtrg, encoding=unicode))
+    #fout.close()
+    #print "Text {0} written to file.".format(t3.key)
+    #print tibToWylie(t3.title)  ## vol.getLine(141, 5)
+    
+    #cat.getVolumeTOC(3)
 
 ######## End of Main Routine ########
 
