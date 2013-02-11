@@ -4,7 +4,7 @@ from lxml import etree
 from . import XMLVars
 
 ####  XMLText Class ####
-class TextCat(object, XMLVars.XMLCommonVars):
+class TextCat(object):
   """XML Text: An Object for manipulating XML data about one text in a catalog"""
   
   # Not necessary to define properties here but help tips in IDEs use them if explicit
@@ -22,7 +22,7 @@ class TextCat(object, XMLVars.XMLCommonVars):
   notes = ""
   
   def __init__(self, t):
-    for p in self.textprops:
+    for p in XMLVars.textprops:
       setattr(self, p, t.find(p).text)
   
   def __type__(self):
@@ -33,7 +33,7 @@ class TextCat(object, XMLVars.XMLCommonVars):
     out = u'{"' # Open JSON object
     kvsep = u'":"'  # Separator between key and value
     itemsep = u'", "' # Separator between items
-    for p in self.textprops: # loop through attributes from props list
+    for p in XMLVars.textprops: # loop through attributes from props list
       out += p + kvsep
       val = getattr(self,p) # Get attribute value
       # Account for NoneTypes or null attributes

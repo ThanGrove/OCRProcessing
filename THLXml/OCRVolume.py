@@ -12,7 +12,7 @@ class Vol():
   number = ""
   # txtdelims:
   # 1: rgya gar skad du, 2:  gar skad du/, 3: rdzogs so//, 4: phyag tshal
-  txtdelims = [u'རྒྱ་གར་སྐད་ད', u'གར་སྐད་དུ།', u'རྫོགས་སོ།།', u'ཕྱག་ཚལ']  
+  txtdelims = [u'རྒྱ་གར་སྐད་དུ', u'གར་སྐད་དུ།']  
   
   def __init__(self, path, number):
       """Takes a path to an XML document and parses it, reading in a volume's ocr document"""
@@ -108,19 +108,34 @@ class Vol():
   
   def textStartLine(self, n):
     pg = self.getPage(n)
-    mxln = 0
-    for textstartstr in self.txtdelims:
-      for m in pg.iter('milestone'):
-        if m.get('unit') == "line":
-          mt = m.tail
-          if mt.find(textstartstr) > -1:
-            sl = re.search('\.(\d+)', m.get('n'))
-            if sl:
-              return sl.group(1)
+    for m in pg.iter('milestone'):
+      if m.get('unit') == "line":
+        sl = re.search('\.(\d+)', m.get('n'))
+        if sl:
+          foundInLine = self.testLine(m)
+          if foundInLine == True:
+            return sl.group(1)
     return False
     
+  def testLine(self, m):
+    for tss in self.txtdelims:
+      mt = m.tail
+      if mt.find(tss) > -1:
+        #print XMLVars.tibToWylie(tss),":", XMLVars.tibToWylie(mt)
+        return True
+    return False
+            
   def textStartsAtTop(self, n):
     sl = self.textStartLine(n)
-    return True if sl and sl == 1 else False
+    if sl == "1":
+      line = self.getLine(n,1)
+      ln = len(line)
+      for tss in self.txtdelims:
+        pos = line.find(tss)
+        if pos < ln:
+          ln = pos
+      if ln < 10:
+        return True
+    return False
   
 ##### End of OCRVol Class ####
