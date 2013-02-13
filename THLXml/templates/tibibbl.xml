@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tibbibl SYSTEM "http://texts.thlib.org/catalogs/xtibbibl3.dtd">
+<tibbibl id="ngb-tb-0005-bib" level="text">
+    <controlinfo>
+        <sysid id="sysid"/>
+        <date n="today"/>
+        <respStmt>
+            <resp>Cataloguer</resp>
+            <name>ndg</name>
+        </respStmt>
+        <resources>
+            <xref n="parent-cat">ngb/pt/ngb-pt-cat.xml</xref>
+        </resources>
+    </controlinfo>
+    <!--Bibliographic Record for ལ་ཟློ་གསང་བའི་འཁོར་ལོ། The Cycle of Esoteric Conviction-->
+    <tibiddecl scheme="thl">
+        <!--Identification Information-->
+        <tibid type="collection" system="sigla">ngb
+            <tibid type="edition" system="letter">dPal brTsegs<altid lang="tib" system="letter"
+                    ><!--dpal brtsegs-->དཔལ་བརྩེགས་</altid>
+                <tibid type="edition" system="sigla">Pt<tibid id="key" type="text" system="number"></tibid>
+                    <tibid id="vum" type="volume" system="number"><altid system="letter" lang="tib"><!--ka-->ཀ</altid>
+                        <tibid id="tinv" type="text" system="number"></tibid>
+                    </tibid>
+                </tibid>
+            </tibid>
+            <tibid type="edition" system="letter">Taiwan Edition<tibid type="edition" system="sigla">Tb1<tibid type="text" system="number"
+                        >4475</tibid>
+                </tibid>
+            </tibid>
+            <tibid type="edition" system="letter">Kaneko Catalogue<tibid type="edition" system="sigla">Tk1<tibid type="text" system="number"
+                        >0003</tibid>
+                </tibid>
+            </tibid>
+        </tibid>
+        <idno type="master">ngb-ng-1106</idno>
+    </tibiddecl>
+    <physdecl>
+        <!--Physical Description-->
+        <pagination>
+            <rs type="pagination" n="start">
+                <num type="page">262</num>
+                <num type="line">1</num>
+            </rs>
+            <rs type="pagination" n="end">
+                <num type="page">288</num>
+                <num type="line">3</num>
+            </rs>
+        </pagination>
+        <extentdecl type="sides">
+            <extent class="total">27</extent>
+            <!--Below class="Atiyoga" must be adjusted for each dox cat.-->
+            <extent class="atiyoga"/>
+        </extentdecl>
+        <divdecl type="cle">
+            <divcount class="total">14</divcount>
+            <divcount class="front">1</divcount>
+            <divcount class="body">10<name type="designation">
+                    <rs lang="tib"><!--le'u/-->ལེའུ།</rs>
+                </name>
+            </divcount>
+            <divcount class="back">3</divcount>
+        </divdecl>
+        <discussion type="cle"/>
+        <physfacet type="illustrations">No</physfacet>
+        <physfacet lang="tib" type="script"><!--dbu can/-->དབུ་ཅན།</physfacet>
+    </physdecl>
+    <intelldecl>
+        <!--Intellectual Description-->
+        <doxography type="relation">NGB text proper</doxography>
+        <doxography type="category" subtype="master"/>
+        <doxography type="category" lang="tib" subtype="edition"><!--a ti yo ga-->ཨ་ཏི་ཡོ་ག</doxography>
+        <doxography type="genre" lang="tib"><!--rgyud/-->རྒྱུད།</doxography>
+    </intelldecl>
+    <origination>
+        <!--Provenance-->
+        <respdecl type="translator">
+            <persName lang="eng" type="indian-scholar">Not specified.</persName>
+            <persName lang="eng" type="tibetan-translator">Not specified.</persName>
+            <date lang="eng">Not specified.</date>
+            <placeName lang="eng">Not specified.</placeName>
+            <discussion type="original-language" lang="eng" rend="info"> Not specified. </discussion>
+            <discussion type="translators"/>
+        </respdecl>
+    </origination>
+    <titlegrp>
+        <titledecl n="text">
+            <!--Title Information-->
+            <title lang="tib" type="normalized-title"><!--la zlo gsang ba'i 'khor lo/-->ལ་ཟློ་གསང་བའི་འཁོར་ལོ།</title>
+            <source>dfg</source>
+            <discussion type="normalized-title" rend="info"/>
+        </titledecl>
+        <titleinfo>
+            <!--Title Variants-->
+            <titlediv type="front" subtype="title-line">
+                <titledecl>
+                    <title lang="tib"><!--la zlo gsang ba'i 'khor lo zhes bya ba'i rgyud/-->ལ་ཟློ་གསང་བའི་འཁོར་ལོ་ཞེས་བྱ་བའི་རྒྱུད།</title>
+                </titledecl>
+                <pagination>
+                    <rs type="pagination" n="start">
+                        <num type="page">262</num>
+                        <num type="line">1</num>
+                    </rs>
+                    <rs type="pagination" n="end">
+                        <num type="page">262</num>
+                        <num type="line">2</num>
+                    </rs>
+                </pagination>
+            </titlediv>
+            <titlediv type="body" subtype="sections">
+                <titlelist>
+                    <titledecl>
+                        <title lang="eng">No title given.</title>
+                    </titledecl>
+                    <titleitem>
+                        <designation>1</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">265</num>
+                                <num type="line">2</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                    <titleitem>
+                        <designation>2</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">267</num>
+                                <num type="line">4</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                    <titleitem>
+                        <designation>3</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">270</num>
+                                <num type="line">1</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                    <titleitem>
+                        <designation>4</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">272</num>
+                                <num type="line">5</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                    <titleitem>
+                        <designation>5</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">275</num>
+                                <num type="line">2</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                    <titleitem>
+                        <designation>6</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">276</num>
+                                <num type="line">6</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                    <titleitem>
+                        <designation>7</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">279</num>
+                                <num type="line">6</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                    <titleitem>
+                        <designation>8</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">282</num>
+                                <num type="line">2</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                    <titleitem>
+                        <designation>9</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">284</num>
+                                <num type="line">3</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                    <titleitem>
+                        <designation>10</designation>
+                        <pagination>
+                            <rs type="pagination" n="start">
+                                <num type="page">285</num>
+                                <num type="line">7</num>
+                            </rs>
+                        </pagination>
+                    </titleitem>
+                </titlelist>
+            </titlediv>
+            <titlediv type="back" subtype="closing-section">
+                <titledecl>
+                    <title lang="tib"
+                        ><!--rgyud chen la zlo gsang ba'i 'khor lo zhes bya ba_/_dgongs pa klong nas shar ba'i mun sel/-->རྒྱུད་ཆེན་ལ་ཟློ་གསང་བའི་འཁོར་ལོ་ཞེས་བྱ་བ ། དགོངས་པ་ཀློང་ནས་ཤར་བའི་མུན་སེལ།</title>
+                </titledecl>
+                <pagination>
+                    <rs type="pagination" n="start">
+                        <num type="page">288</num>
+                        <num type="line">1</num>
+                    </rs>
+                    <rs type="pagination" n="end">
+                        <num type="page">288</num>
+                        <num type="line">2</num>
+                    </rs>
+                </pagination>
+            </titlediv>
+            <titlediv type="nontibet">
+                <titledecl>
+                    <title lang="eng">Not specified.</title>
+                </titledecl>
+                <pagination>
+                    <rs type="pagination" n="start">
+                        <num type="page"/>
+                        <num type="line"/>
+                    </rs>
+                </pagination>
+            </titlediv>
+        </titleinfo>
+    </titlegrp>
+
+</tibbibl>

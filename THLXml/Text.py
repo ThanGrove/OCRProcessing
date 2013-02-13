@@ -1,11 +1,11 @@
 # coding=utf-8
 
 from lxml import etree
-from . import XMLVars
+from . import Vars
 
-####  XMLText Class ####
-class TextCat(object):
-  """XML Text: An Object for manipulating XML data about one text in a catalog"""
+####  THLText Class ####
+class Text(object):
+  """THL Text: An Object for manipulating XML data about one text in a catalog"""
   
   # Not necessary to define properties here but help tips in IDEs use them if explicit
   tnum = ""  # the given text number from the record in the catalog not necessarily sequential
@@ -22,18 +22,18 @@ class TextCat(object):
   notes = ""
   
   def __init__(self, t):
-    for p in XMLVars.textprops:
+    for p in Vars.textprops:
       setattr(self, p, t.find(p).text)
   
   def __type__(self):
-    return "XMLText"
+    return "THL Text"
   
   def JSON(self):
     """Returns a unicode JSON object of the text's attributes""" 
     out = u'{"' # Open JSON object
     kvsep = u'":"'  # Separator between key and value
     itemsep = u'", "' # Separator between items
-    for p in XMLVars.textprops: # loop through attributes from props list
+    for p in Vars.textprops: # loop through attributes from props list
       out += p + kvsep
       val = getattr(self,p) # Get attribute value
       # Account for NoneTypes or null attributes
