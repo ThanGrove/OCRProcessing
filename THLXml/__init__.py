@@ -1,1 +1,1 @@
-__all__ = ["XMLVars", "XMLCatalog", "XMLText", "OCRVolume"]
+__all__ = ["Vars", "Catalog", "Text", "OCRVolume"]

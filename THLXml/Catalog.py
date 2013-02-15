@@ -4,12 +4,14 @@ import codecs
 from lxml import etree
 from copy import deepcopy
 from . import Vars, Text
+from os import listdir
 from os.path import dirname, join
 from urllib import urlopen, urlencode
 
 my_path = dirname(__file__)
 tmpl_path = join(my_path, 'templates')
 data_path = join(my_path, '..', 'data')
+vol_dir = join(my_path, '..', '..', 'volsource')
 
 def loadPeltsek():
   catpath = join(data_path, 'peltsek-with-lines.xml')
@@ -36,17 +38,25 @@ class Catalog():
        
   docpath = ""
   tree = None
-  name = ""
+  colname = {
+    "eng":"",
+    "tib":"",
+    "wyl":""
+  }
+  coll = ""
+  sigla = ""
   vols = {}
   texts = {}
   textcount = 0
   volcount = 0
+  voldir = ""
   
-  def __init__(self, path, name):
+  def __init__(self, path, name, voldir = vol_dir):
     """Takes a path to an XML document and parse it, creating two dictionary attributes: 
         1. vols = an dictionary of volumes keyed on vol num and 2. texts a dictionary of texts keyed on text num"""
     try:
       self.name = name
+      self.voldir = voldir
       seqvnum = 0
       oldvnum = 0
       done = False
@@ -88,26 +98,40 @@ class Catalog():
       
     except IOError:
       print "\nError! '{0}' is not a valid file name. Cannot continue. Sorry!".format(path)
-
+      
+  def __type__(self):
+    return "THL Catalog"
+  
+  # General Functions
+  def write(self, path, doc="self"):
+    if doc == "self":
+      doc = self.tree
+    fout = codecs.open(path, 'w', encoding='utf-8')
+    fout.write(etree.tostring(doc, encoding=unicode))
+    fout.close()
+    
+  # Volume Functions
+  def importVolInfo(self, path):
+    voldoc = etree.parse(path).getroot()
+    volels = voldoc.xpath('/*//volume')
+    for vol in volels:
+      vnum = int(vol.find('num').text)
+      vobj = self.getVolume(vnum)
+      if vobj != None:
+        vobj['wylie'] = vol.find('name[@lang="wylie"]').text
+        vobj['tib'] = vol.find('name[@lang="tib"]').text
+        vobj['dox'] = vol.find('dox').text
+        vobj['tcount'] = vol.find('textcount').text
+        vsstr = "vol" + str(vnum).zfill(2)
+        for f in listdir(self.voldir):
+          if vsstr in f:
+            vobj['ocrfile'] = join(self.voldir, f)
+            break
+  
   def getVolume(self, n):
-    """Returns a text object"""
+    n = int(n)
     if self.vols.has_key(n):
       return self.vols[n]
-    else:
-      return None
-    
-  def getText(self, n, type="object"):
-    """Returns a text object"""
-    if self.texts.has_key(n):
-      if type == "element":
-        print "element"
-        return self.texts[n]
-      elif type == "string":
-        print "string"
-        return etree.tostring(self.texts[n], encoding=unicode)
-      else:
-        print "Text"
-        return Text.Text(self.texts[n])
     else:
       return None
   
@@ -126,12 +150,22 @@ class Catalog():
       print "There is no volume {0}".format(n)
     if method == 'list':
       return voltoc
-      
-  def iterTexts(self):
-    txts = self.texts
-    for k, txt in txts.iteritems():
-      yield Text.TextCat(txt)
-      
+  
+  # Text functions
+  def getText(self, n, type="object"):
+    """Returns a text object"""
+    if isinstance(n,str):
+      n = int(n)
+    if self.texts.has_key(n):
+      if type == "element":
+        return self.texts[n]
+      elif type == "string":
+        return etree.tostring(self.texts[n], encoding=unicode)
+      else:
+        return Text.Text(self.texts[n], self)
+    else:
+      return None
+    
   def getTextList(self, type="tuple"):
     """Get a list of texts in one of three formats: tuples (default), arrays, or dictionaries"""
     out = []
@@ -149,22 +183,10 @@ class Catalog():
         out.append((t.key, t.tnum, t.title, t.vnum, t.startpage, t.endpage, t.numofchaps, t.chaptype,
                   t.doxography, t.translators, t.crossrefs, t.notes))
     return out
-  
-  def write(self, path):
-    fout = codecs.open(path, 'w', encoding='utf-8')
-    fout.write(etree.tostring(self.tree, encoding=unicode))
-    fout.close()
-    
-  def importVolInfo(self, path):
-    voldoc = etree.parse(path).getroot()
-    volels = voldoc.xpath('/*//volume')
-    for vol in volels:
-      vnum = int(vol.find('num').text)
-      vobj = self.getVolume(vnum)
-      if vobj != None:
-        vobj['wylie'] = vol.find('name[@lang="wylie"]').text
-        vobj['tib'] = vol.find('name[@lang="tib"]').text
-        vobj['dox'] = vol.find('dox').text
-        vobj['tcount'] = vol.find('textcount').text
-    
+      
+  def iterTexts(self):
+    txts = self.texts
+    for k, txt in txts.iteritems():
+      yield Text.Text(txt, self)
+
 #### End of XMLCat Class ###

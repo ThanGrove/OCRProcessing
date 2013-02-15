@@ -16,5 +16,12 @@ volfolder = '..{0}source{0}'.format(sep)          # Folder where vol OCR resides
 catout = datafolder + 'peltsek-with-lines.xml'    # Path to write new catalog
 vol3src =  volfolder + 'nying-gyud-vol03_than_ygNTCyzRdq4u.txt'
 # Instantiate the Peltsek Catalog
-cat = XMLCatalog.XMLCat(catpath, 'Peltsek')
+cat = XMLCatalog.Catalog(catpath, 'Peltsek')
+
+tc = 0
+for v in cat.vols:
+  vl = cat.vols[v]
+  tc += len(vl['texts'])
+
+print cat.vols[3]
 

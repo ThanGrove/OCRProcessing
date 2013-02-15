@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE tibbibl SYSTEM "http://texts.thlib.org/catalogs/xtibbibl3.dtd">-->
+<tibbibl id="ngb-tb-0005-bib" level="text">
+    <controlinfo>
+        <sysid id="sysid"/>
+        <date n="today"/>
+        <respStmt>
+            <resp>Cataloguer</resp>
+            <name>ndg</name>
+        </respStmt>
+        <resources>
+            <xref n="parent-cat">ngb/pt/ngb-pt-cat.xml</xref>
+        </resources>
+    </controlinfo>
+    <!--THL Bibliographic Record -->
+    <tibiddecl scheme="thl">
+        <!--Identification Information-->
+        <tibid id="collid" type="collection" system="sigla">ngb <tibid id="edid" type="edition" system="letter">dPal brTsegs<altid id="edaltid"
+                    lang="tib" system="letter"><!--dpal brtsegs-->དཔལ་བརྩེགས་</altid>
+                <tibid type="edition" system="sigla">Pt<tibid id="tnum" type="text" system="number"/>
+                    <tibid id="vnum" type="volume" system="number"><altid id="altid" system="letter" lang="tib"/>
+                        <tibid id="tinv" type="text" system="number"/>
+                    </tibid>
+                </tibid>
+            </tibid>
+        </tibid>
+        <idno type="master"/>
+    </tibiddecl>
+    <physdecl>
+        <!--Physical Description-->
+        <pagination>
+            <rs type="pagination" n="start">
+                <num id="spp" type="page"/>
+                <num id="spl" type="line"/>
+            </rs>
+            <rs type="pagination" n="end">
+                <num id="epp" type="page"/>
+                <num id="epl" type="line"/>
+            </rs>
+        </pagination>
+        <extentdecl type="sides">
+            <extent id="tpps" class="total"/>
+        </extentdecl>
+        <physfacet type="illustrations">No</physfacet>
+        <physfacet lang="tib" type="script"><!--dbu can/-->དབུ་ཅན།</physfacet>
+    </physdecl>
+    <intelldecl>
+        <doxography id="doxcat" type="category" lang="tib" subtype="edition"/>
+    </intelldecl>
+    <origination>
+        <!--Provenance-->
+        <respdecl type="translator">
+            <persName id="istrans" lang="tib" type="indian-scholar"/>
+            <persName id="tttrans" lang="tib" type="tibetan-translator"/>
+            <date lang="eng">Not specified.</date>
+            <placeName lang="eng">Not specified.</placeName>
+            <discussion type="original-language" lang="eng" rend="info"> Not specified. </discussion>
+            <discussion type="translators"/>
+        </respdecl>
+    </origination>
+    <titlegrp>
+        <titledecl n="text">
+            <!--Title Information-->
+            <title id="normtitle" lang="tib" type="normalized-title"/>
+            <source>Peltsek Catalog</source>
+            <discussion type="normalized-title" rend="info"/>
+        </titledecl>
+        <titleinfo>
+            <!--Title Variants-->
+            <titlediv type="front" subtype="title-line">
+                <titledecl>
+                    <title id="title" lang="tib"/>
+                </titledecl>
+                <pagination>
+                    <rs type="pagination" n="start">
+                        <num type="page"/>
+                        <num type="line"/>
+                    </rs>
+                    <rs type="pagination" n="end">
+                        <num type="page"/>
+                        <num type="line"/>
+                    </rs>
+                </pagination>
+            </titlediv>
+        </titleinfo>
+    </titlegrp>
+
+</tibbibl>

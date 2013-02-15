@@ -3,7 +3,7 @@
 import re
 from lxml import etree
 from copy import deepcopy
-from . import XMLVars, XMLText
+from . import Vars
 
 ##### OCRVol Class #####
 class Vol():
@@ -72,6 +72,10 @@ class Vol():
   
   def getRange(self, st, en, el="div1"):
     """Get a range of text in the volume and return in the element of ones choice"""
+    if "." not in st:
+      st = st + ".1"
+    if "." not in en:
+      en = en + ".6"
     stpg = st.split('.')
     t = self.tree               # The vol xml file
     rng = etree.Element(el)     # Start the output element "rng"
@@ -84,26 +88,30 @@ class Vol():
       pn = stpg[0]
     xp = xp = '/*//milestone[@unit="' + unit + '" and @n="' + str(pn) + '"]' # Xpath to find page milestone with nvalue = pn
     query = t.xpath(xp)
-    # Copy it and append to xpage output element
-    cp = deepcopy(query[0])
-    if type(query[0].tail) == 'str':
-      cp.tail = query[0].tail # add the text following the milestone if any (shouldn't be)
-    rng.append(cp)
-    
-    # Iterate its siblings until a line milestone with n greater than en variable
-    #    is met and add to output rng element
-    #    page milestone siblings will be line milestones
-    for sib in query[0].itersiblings():
-      try:
-        if float(sib.get('n')) > float(en):
-          break;
-      except ValueError:
-        nval = sib.get('n')
-        print "None numeric n value: {0}".format(nval)
-      cp = deepcopy(sib)         # Copy the line milestone
-      if type(sib.tail) == 'str':
-        cp.tail = query[0].tail  #  Add the text after the line milestone also
-      rng.append(cp)  #  append the whole thing to the output element
+    if query:
+      # Copy it and append to xpage output element
+      cp = deepcopy(query[0])
+      if type(query[0].tail) == 'str':
+        cp.tail = query[0].tail # add the text following the milestone if any (shouldn't be)
+      rng.append(cp)
+      
+      # Iterate its siblings until a line milestone with n greater than en variable
+      #    is met and add to output rng element
+      #    page milestone siblings will be line milestones
+      for sib in query[0].itersiblings():
+        try:
+          if float(sib.get('n')) > float(en):
+            break;
+        except ValueError:
+          nval = sib.get('n')
+          print "None numeric n value: {0}".format(nval)
+        cp = deepcopy(sib)         # Copy the line milestone
+        if type(sib.tail) == 'str':
+          cp.tail = query[0].tail  #  Add the text after the line milestone also
+        rng.append(cp)  #  append the whole thing to the output element
+    else:
+      print "XPath Failed for Vol {0}".format(self.number)
+      print "\t{0}".format(xp)
     return rng
   
   def textStartLine(self, n):
