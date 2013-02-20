@@ -5,6 +5,13 @@ from lxml import etree
 from copy import deepcopy
 from . import Vars
 
+def is_number(s):
+  try:
+      float(s)
+      return True
+  except ValueError:
+      return False
+    
 ##### OCRVol Class #####
 class Vol():
   docpath = ""
@@ -19,6 +26,55 @@ class Vol():
       try:
         self.number = number
         self.tree = etree.parse(path)
+        
+        # find missing milestones and if lines after are -1.1 then it is not really missing
+        # Adjust the page number to be between the previous and following one if that number is missing
+        # Or else no change
+        for m in self.tree.xpath('/*//milestone[@unit="missing"]'):
+          nval = m.get("n")
+          pel = m.getprevious()
+          nel = m.getnext()
+          natn = nel.get("n").split('.')[0]
+          while nel is not None and natn == "-1":
+            nel = nel.getnext()
+            if nel is not None:
+              natn = nel.get("n").split('.')[0]
+          nextm = m.getnext()
+          match = re.search('_(\d+)\.tif', nval)
+          if match and pel is not None and nextm is not None:
+            pnum = int(match.group(1))
+            pnval = pel.get('n').split('.')[0]
+            nnval = nextm.get('n').split('.')[0]
+            
+            nmatch = re.search('out_(\d+)', natn)
+            
+            if nmatch:
+              natn = int(nmatch.group(1))
+              
+            if is_number(pnval) and is_number(natn) and int(natn) - int(pnval) == 2:
+              pnum = int(pnval) + 1
+              
+            if nextm is not None and nextm.get("unit") == "line":
+              m.set("unit","page")
+              m.set("n", str(pnum))
+              nnval = nextm.get("n").split(".")
+              while nnval[0] == "-1":
+                nnval[0] = str(pnum)
+                nextm.set("n", ".".join(nnval))
+                
+                if nextm is not None:
+                  nextm = nextm.getnext()
+                  
+                if nextm is None or nextm.get("unit") != "line":
+                  break
+                
+                else:
+                  nnval = nextm.get('n').split('.')
+                
+            #print "this: {0}, next: {1}".format(str(pnum), nextm.get("unit"))
+          #else:
+            #print "Missing page: {0}".format(nval)
+        
       except IOError:
         print "\nError! '{0}' is not a valid file name. Cannot continue. Sorry!".format(path)
         
@@ -88,6 +144,12 @@ class Vol():
       pn = stpg[0]
     xp = xp = '/*//milestone[@unit="' + unit + '" and @n="' + str(pn) + '"]' # Xpath to find page milestone with nvalue = pn
     query = t.xpath(xp)
+    
+    if not query and pn == 1:
+      pn = 2
+      xp = xp = '/*//milestone[@unit="' + unit + '" and @n="' + str(pn) + '"]' # Xpath to find page milestone with nvalue = pn
+      query = t.xpath(xp)
+      
     if query:
       # Copy it and append to xpage output element
       cp = deepcopy(query[0])
@@ -109,11 +171,21 @@ class Vol():
         if type(sib.tail) == 'str':
           cp.tail = query[0].tail  #  Add the text after the line milestone also
         rng.append(cp)  #  append the whole thing to the output element
+        
     else:
       print "XPath Failed for Vol {0}".format(self.number)
       print "\t{0}".format(xp)
+      
     return rng
   
+  def findMilestones(self, pg): 
+    for m in self.tree.xpath('/*//milestone[@n="' + pg + '"]'):
+      print m.get("unit"), m.get("n")
+      nxtm = m.getnext()
+      while nxtm is not None and pg in nxtm.get("n"):
+        print nxtm.get("unit"), nxtm.get("n")
+        nxtm = nxtm.getnext()
+    
   def textStartLine(self, n):
     pg = self.getPage(n)
     for m in pg.iter('milestone'):

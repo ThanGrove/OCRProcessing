@@ -11,7 +11,7 @@ from urllib import urlopen, urlencode
 my_path = dirname(__file__)
 tmpl_path = join(my_path, 'templates')
 data_path = join(my_path, '..', 'data')
-vol_dir = join(my_path, '..', '..', 'volsource')
+vol_dir = join(my_path, '..', '..', 'volsource') # directory which contains OCR volume files
 
 def loadPeltsek():
   catpath = join(data_path, 'peltsek-with-lines.xml')
@@ -165,23 +165,12 @@ class Catalog():
         return Text.Text(self.texts[n], self)
     else:
       return None
-    
-  def getTextList(self, type="tuple"):
+  
+  def getTextList(self, listtype="tuple", tibformat="unicode"):
     """Get a list of texts in one of three formats: tuples (default), arrays, or dictionaries"""
     out = []
     for t in self.iterTexts():
-      if type == "array":
-        out.append([t.key, t.tnum, t.title, t.vnum, t.startpage, t.endpage, t.numofchaps, t.chaptype,
-                  t.doxography, t.translators, t.crossrefs, t.notes])
-      elif type == "dictionary":
-        out.append({ "key": t.key, "tnum": t.tnum, "title": t.title,
-                    "vnum": t.vnum, "startpage": t.startpage, "endpage": t.endpage,
-                    "numofchaps": t.numofchaps, "chaptype": t.chaptype,
-                    "doxography": t.doxography, "translators": t.translators,
-                    "crossrefs": t.crossrefs, "notes": t.notes})
-      else:
-        out.append((t.key, t.tnum, t.title, t.vnum, t.startpage, t.endpage, t.numofchaps, t.chaptype,
-                  t.doxography, t.translators, t.crossrefs, t.notes))
+      out.append(t.getData(listtype, tibformat))
     return out
       
   def iterTexts(self):

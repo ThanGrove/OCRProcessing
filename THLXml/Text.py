@@ -91,7 +91,7 @@ class Text(object):
     if type(parent) == "instance" and parent.__type__() == "THL Catalog":
       self.cat = parent
       
-  def JSON(self):
+  def toJSON(self, tibetan="unicode"):
     """Returns a unicode JSON object of the text's attributes""" 
     out = u'{"' # Open JSON object
     kvsep = u'":"'  # Separator between key and value
@@ -99,6 +99,9 @@ class Text(object):
     for p in Vars.textprops: # loop through attributes from props list
       out += p + kvsep
       val = getattr(self,p) # Get attribute value
+      if tibetan == "wylie":
+        if p == "title" or p == "chaptype" or p == "doxography" or p == translators or p == "crossrefs" or p == "notes":
+          val = tibToWylie(val)
       # Account for NoneTypes or null attributes
       if val == None:
         out += u""
@@ -107,6 +110,42 @@ class Text(object):
       out += itemsep
     out = out[:-3] + u'}' # remove last 3 character (, ") and close JSON object
     return out  # return value is unicode
+  
+  def getData(self, datatype="tuple", tibetan="unicode"):
+    t = self
+    if datatype == "json":
+      return self.toJSON(tibetan)
+    else:
+      title = t.title
+      chptype = t.chaptype
+      dox = t.doxography
+      trans = t.translators
+      crefs = t.crossrefs
+      notes = t.notes
+      
+      if tibetan == "wylie":
+        title = tibToWylie(title)
+        chptype = tibToWylie(chptype)
+        dox = tibToWylie(dox)
+        trans = tibToWylie(trans)
+        crefs = tibToWylie(crefs)
+        notes = tibToWylie(notes)
+        
+      # QUESTION! Are these t.tnum values etc stored as values or references to the object?
+      if datatype == "array":
+        return [t.key, t.tnum, title, t.vnum, t.startpage, t.endpage, t.numofchaps, chptype,
+                    dox, trans, crefs, notes]
+      
+      elif datatype == "dictionary":  
+        return { "key": t.key, "tnum": t.tnum, "title": title,
+                    "vnum": t.vnum, "startpage": t.startpage, "endpage": t.endpage,
+                    "numofchaps": t.numofchaps, "chaptype": chptype,
+                    "doxography": dox, "translators": trans,
+                    "crossrefs": crefs, "notes": notes }
+      
+      else:  # Default datatype is tuple 
+        return (t.key, t.tnum, title, t.vnum, t.startpage, t.endpage, t.numofchaps, chptype,
+                  dox, trans, crefs, notes)
     
   def writeTextBibl(self, path = None, name = None):
     if path == None:
