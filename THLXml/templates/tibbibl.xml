@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--<!DOCTYPE tibbibl SYSTEM "http://texts.thlib.org/catalogs/xtibbibl3.dtd">-->
-<tibbibl id="ngb-tb-0005-bib" level="text">
+<tibbibl id="" level="text">
     <controlinfo>
         <sysid id="sysid"/>
         <date n="today"/>
@@ -15,10 +15,13 @@
     <!--THL Bibliographic Record -->
     <tibiddecl scheme="thl">
         <!--Identification Information-->
-        <tibid id="collid" type="collection" system="sigla">ngb <tibid id="edid" type="edition" system="letter">dPal brTsegs<altid id="edaltid"
-                    lang="tib" system="letter"><!--dpal brtsegs-->དཔལ་བརྩེགས་</altid>
-                <tibid type="edition" system="sigla">Pt<tibid id="tnum" type="text" system="number"/>
-                    <tibid id="vnum" type="volume" system="number"><altid id="altid" system="letter" lang="tib"/>
+        <tibid id="collid" type="collection" system="sigla">ngb 
+            <tibid id="edid" type="edition" system="letter">dPal brTsegs
+                <altid id="edaltid" lang="tib" system="letter"><!--dpal brtsegs-->དཔལ་བརྩེགས་</altid>
+                <tibid type="edition" system="sigla">Pt
+                    <tibid id="tnum" type="text" system="number"/>
+                    <tibid id="vnum" type="volume" system="number">
+                        <altid id="altid" system="letter" lang="tib"/>
                         <tibid id="tinv" type="text" system="number"/>
                     </tibid>
                 </tibid>
@@ -54,8 +57,7 @@
             <persName id="tttrans" lang="tib" type="tibetan-translator"/>
             <date lang="eng">Not specified.</date>
             <placeName lang="eng">Not specified.</placeName>
-            <discussion type="original-language" lang="eng" rend="info"> Not specified. </discussion>
-            <discussion type="translators"/>
+            <discussion type="original-language" lang="tib" rend="info"><!--rgya gar skad/-->རྒྱ་གར་སྐད།</discussion>
         </respdecl>
     </origination>
     <titlegrp>
@@ -84,5 +86,4 @@
             </titlediv>
         </titleinfo>
     </titlegrp>
-
 </tibbibl>

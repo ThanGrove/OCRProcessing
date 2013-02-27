@@ -19,16 +19,6 @@ def loadPeltsek():
   cat.importVolInfo(join(data_path, 'ngb-pt-vols.xml'))
   return cat
 
-def tibToWylie(txt):
-  url = 'http://local.thlib.org/cgi-bin/thl/lbow/wylie.pl?'  # Only Local
-  q = {'conversion':'uni2wy', 'plain':'true', 'input' : unicode(txt).encode('utf-8') }
-  out = ''
-  fh = urllib.urlopen(url + urllib.urlencode(q))
-  for l in fh.readlines():
-    out += l
-  fh.close()
-  return out
-
 #### Catalog Class   ####
 class Catalog():
   """A class for processing an XML document that is a list of texts.
@@ -143,14 +133,16 @@ class Catalog():
         txt = self.getText(tn)
         if method == 'list':
           voltoc.append({"key":txt.key, "tnum":txt.tnum, "title":txt.title, "vnum":txt.vnum, "start":txt.startpage, "end":txt.endpage})
+        elif method == 'texts':
+          voltoc.append(self.getText(txt.key))
         else:
-          title = tibToWylie(txt.title)
+          title = self.tibToWylie(txt.title)
           print txt.key, txt.tnum, wytitle, txt.vnum, txt.startpage, txt.endpage
     else:
       print "There is no volume {0}".format(n)
-    if method == 'list':
+    if method != 'plain':
       return voltoc
-  
+    
   # Text functions
   def getText(self, n, type="object"):
     """Returns a text object"""
@@ -177,5 +169,17 @@ class Catalog():
     txts = self.texts
     for k, txt in txts.iteritems():
       yield Text.Text(txt, self)
+      
+    
+  def tibToWylie(self, txt):
+    url = 'http://local.thlib.org/cgi-bin/thl/lbow/wylie.pl?'  # Only Local
+    q = {'conversion':'uni2wy', 'plain':'true', 'input' : unicode(txt).encode('utf-8') }
+    out = ''
+    fh = urlopen(url + urlencode(q))
+    for l in fh.readlines():
+      out += l
+    fh.close()
+    return out
+
 
 #### End of XMLCat Class ###

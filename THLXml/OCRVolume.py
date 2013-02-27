@@ -34,6 +34,8 @@ class Vol():
           nval = m.get("n")
           pel = m.getprevious()
           nel = m.getnext()
+          if pel is None or nel is None:
+            continue
           natn = nel.get("n").split('.')[0]
           while nel is not None and natn == "-1":
             nel = nel.getnext()
@@ -134,9 +136,8 @@ class Vol():
       en = en + ".6"
     stpg = st.split('.')
     t = self.tree               # The vol xml file
-    rng = etree.Element(el)     # Start the output element "rng"
-    rng.set('st', st)
-    rng.set('en', en)
+    rng = etree.Element(el)     # Start the output element (div1 or whatever is given in el) and call it "rng"
+    rng.append(etree.Comment("start=" + st + "; end=" + en)) # add a comment with the page range output
     unit = 'line'
     pn = st
     if stpg[1] == '1':
@@ -145,10 +146,15 @@ class Vol():
     xp = xp = '/*//milestone[@unit="' + unit + '" and @n="' + str(pn) + '"]' # Xpath to find page milestone with nvalue = pn
     query = t.xpath(xp)
     
-    if not query and pn == 1:
-      pn = 2
-      xp = xp = '/*//milestone[@unit="' + unit + '" and @n="' + str(pn) + '"]' # Xpath to find page milestone with nvalue = pn
-      query = t.xpath(xp)
+    # if can't find first page, try next 5 pages
+    if not query and is_number(pn):
+      for n in range(1,6):
+        print "Can't find page {0}, trying next page".format(pn)
+        pn = str(int(pn) + 1)
+        xp = xp = '/*//milestone[@unit="' + unit + '" and @n="' + pn + '"]' # Xpath to find page milestone with nvalue = pn
+        query = t.xpath(xp)
+        if query:
+          break
       
     if query:
       # Copy it and append to xpage output element

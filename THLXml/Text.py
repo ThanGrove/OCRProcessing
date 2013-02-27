@@ -160,44 +160,49 @@ class Text(object):
     
     txml.set('id',self.thlid)
     # Setting SYSID
-    self.setTemplateVal(txml, "//sysid", self.thlid + ".xml")
+    self.setTemplateVal(txml, "/*//sysid", self.thlid + ".xml")
     # Setting Today's Date
-    self.setTemplateVal(txml, "//date[@n='today']", today)
+    self.setTemplateVal(txml, "/*//date[@n='today']", today)
     
     # Setting Title
     tle = self.title
     wytle = tibToWylie(tle)
-    self.setTemplateVal(txml, "//title[@id='normtitle']", tle, wytle )
-    self.setTemplateVal(txml, "//title[@id='title']", tle, wytle)
+    self.setTemplateVal(txml, "/*//title[@id='normtitle']", tle, wytle )
+    self.setTemplateVal(txml, "/*//title[@id='title']", tle, wytle)
     
     # Setting Text ID
-    self.setTemplateVal(txml, "//tibid[@id='tnum']", self.key)
+    self.setTemplateVal(txml, "/*//tibid[@id='tnum']", self.key)
     # Setting Volume information
-    self.setTemplateVal(txml, "//tibid[@id='vnum']", self.vnum)
+    self.setTemplateVal(txml, "/*//tibid[@id='vnum']", self.vnum)
     vol = self.cat.getVolume(self.vnum)
-    self.setTemplateVal(txml, "//altid[@id='altid']", vol['tib'], vol['wylie'])
+    self.setTemplateVal(txml, "/*//altid[@id='altid']", vol['tib'], vol['wylie'])
     tinv = vol['texts'].index(int(self.key)) + 1
-    self.setTemplateVal(txml, "//tibid[@id='tinv']", str(tinv))
+    self.setTemplateVal(txml, "/*//tibid[@id='tinv']", str(tinv))
     # Setting pagination
-    if type(self.startpage) == "str":
+    if isinstance(self.startpage, str):
       sp = self.startpage.split('.')
-      self.setTemplateVal(txml, "//num[@id='spp']", sp[0])
+      self.setTemplateVal(txml, "/*//num[@id='spp']", sp[0])
       if len(sp) > 1:
-        self.setTemplateVal(txml, "//num[@id='spl']", sp[1])
-    
-    if type(self.endpage) == "str":
+        self.setTemplateVal(txml, "/*//num[@id='spl']", sp[1])
+    else:
+      print "\tNo start page"
+      
+    if isinstance(self.endpage, str):
       ep = self.endpage.split('.')
-      self.setTemplateVal(txml, "//num[@id='epp']", ep[0])
+      self.setTemplateVal(txml, "/*//num[@id='epp']", ep[0])
       if len(ep) > 1:
-        self.setTemplateVal(txml, "//num[@id='epl']", ep[1])
-    if type(self.startpage) == "str" and type(self.endpage) == "str":
+        self.setTemplateVal(txml, "/*//num[@id='epl']", ep[1])
+    else:
+      print "\tNo end page"
+      
+    if isinstance(self.startpage, str) and isinstance(self.endpage, str):
       tp = int(ep[0]) - int(sp[0]) + 1
-      self.setTemplateVal(txml, "//extent[@id='tpps']", str(tp))
+      self.setTemplateVal(txml, "/*//extent[@id='tpps']", str(tp))
       
     # Setting Doxography
     dtib = self.doxography
     dwyl = []
-    doxel = txml.xpath("//doxography[@id='doxcat']")[0]
+    doxel = txml.xpath("/*//doxography[@id='doxcat']")[0]
     for dtib in dtib.split('::'):
       dwyl = tibToWylie(dtib)
       rs = etree.Element("rs")
@@ -208,7 +213,7 @@ class Text(object):
     
     # Setting Translators
     trans = self.translators
-    tdecl = txml.xpath("//respdecl[@type='translator']")[0]
+    tdecl = txml.xpath("/*//respdecl[@type='translator']")[0]
     if tdecl is not None and trans is not None:
       tdecl.insert(0,etree.Comment(tibToWylie(trans) + " : " + trans))
       tbk = findTransBreak(trans)
@@ -216,11 +221,11 @@ class Text(object):
         trans = trans.split(tbk)[0]
       trans = splitTranslators(trans)
       if len(trans) > 0:
-        self.setTemplateVal(txml, "//persName[@id='istrans']", trans[0], tibToWylie(trans[0]))
+        self.setTemplateVal(txml, "/*//persName[@id='istrans']", trans[0], tibToWylie(trans[0]))
+        transel = deepcopy(txml.xpath("/*//persName[@id='tttrans']")[0])
         if len(trans) > 1:
-          transel = deepcopy(txml.xpath("//persName[@id='tttrans']")[0])
           transel.attrib.pop('id')
-          self.setTemplateVal(txml, "//persName[@id='tttrans']", trans[1], tibToWylie(trans[1]))
+          self.setTemplateVal(txml, "/*//persName[@id='tttrans']", trans[1], tibToWylie(trans[1]))
           if len(trans) > 2:
             for n in range(2,len(trans)):
               tel = deepcopy(transel)
@@ -228,14 +233,20 @@ class Text(object):
               c.tail = trans[n]
               tel.append(c)
               transel.append(tel)
+        else:
+          ttel = txml.xpath("/*//persName[@id='tttrans']")[0]
+          if ttel is not None:
+            ttel.set("lang", "eng")
+            ttel.text = "Not specified."
+            ttel.attrib.pop("id")
       else:
-        print "No translators found!"
+        print "\tNo translators found!"
     else:
-      pn = txml.xpath("//persName[@id='istrans']")[0]
+      pn = txml.xpath("/*//persName[@id='istrans']")[0]
       pn.set("lang", "eng")
       pn.text = "Not specified."
       pn.attrib.pop("id")
-      pn = txml.xpath("//persName[@id='tttrans']")[0]
+      pn = txml.xpath("/*//persName[@id='tttrans']")[0]
       pn.set("lang", "eng")
       pn.text = "Not specified."
       pn.attrib.pop("id")

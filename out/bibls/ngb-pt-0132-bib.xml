@@ -1,0 +1,86 @@
+<!--<!DOCTYPE tibbibl SYSTEM "http://texts.thlib.org/catalogs/xtibbibl3.dtd">--><tibbibl id="ngb-pt-0132-bib" level="text">
+    <controlinfo>
+        <sysid>ngb-pt-0132-bib.xml</sysid>
+        <date>2013-02-21</date>
+        <respStmt>
+            <resp>Cataloguer</resp>
+            <name>ndg</name>
+        </respStmt>
+        <resources>
+            <xref n="parent-cat">ngb/pt/ngb-pt-cat.xml</xref>
+        </resources>
+    </controlinfo>
+    <!--THL Bibliographic Record -->
+    <tibiddecl scheme="thl">
+        <!--Identification Information-->
+        <tibid id="collid" type="collection" system="sigla">ngb 
+            <tibid id="edid" type="edition" system="letter">dPal brTsegs
+                <altid id="edaltid" lang="tib" system="letter"><!--dpal brtsegs-->དཔལ་བརྩེགས་</altid>
+                <tibid type="edition" system="sigla">Pt
+                    <tibid type="text" system="number">132</tibid>
+                    <tibid type="volume" system="number">8<altid system="letter" lang="tib"><!--nya-->ཉ</altid>
+                        <tibid type="text" system="number">29</tibid>
+                    </tibid>
+                </tibid>
+            </tibid>
+        </tibid>
+        <idno type="master"/>
+    </tibiddecl>
+    <physdecl>
+        <!--Physical Description-->
+        <pagination>
+            <rs type="pagination" n="start">
+                <num type="page">499</num>
+                <num type="line">1</num>
+            </rs>
+            <rs type="pagination" n="end">
+                <num type="page">534</num>
+                <num type="line">1</num>
+            </rs>
+        </pagination>
+        <extentdecl type="sides">
+            <extent class="total">36</extent>
+        </extentdecl>
+        <physfacet type="illustrations">No</physfacet>
+        <physfacet lang="tib" type="script"><!--dbu can/-->དབུ་ཅན།</physfacet>
+    </physdecl>
+    <intelldecl>
+        <doxography id="doxcat" type="category" lang="tib" subtype="edition"><rs><!--/sde dge dang mtshams brag rgyud 'bum gnyis kyi chos tshan dpe sdur zhus pa'i dkar chag-->།སྡེ་དགེ་དང་མཚམས་བྲག་རྒྱུད་འབུམ་གཉིས་ཀྱི་ཆོས་ཚན་དཔེ་སྡུར་ཞུས་པའི་དཀར་ཆག</rs><rs><!--a ti yo ga-->ཨ་ཏི་ཡོ་ག</rs><rs><!--sems sde'i skor/-->སེམས་སྡེའི་སྐོར།</rs><rs><!--sems sde spyi'i skor/_-->སེམས་སྡེ་སྤྱིའི་སྐོར། </rs></doxography>
+    </intelldecl>
+    <origination>
+        <!--Provenance-->
+        <respdecl type="translator">
+            <!--bai ro tsa nas bsgyur/ : བཻ་རོ་ཙ་ནས་བསྒྱུར།--><persName lang="tib" type="indian-scholar"><!--bai ro tsa na-->བཻ་རོ་ཙ་ན</persName>
+            <persName lang="eng" type="tibetan-translator">Not specified.</persName>
+            <date lang="eng">Not specified.</date>
+            <placeName lang="eng">Not specified.</placeName>
+            <discussion type="original-language" lang="tib" rend="info"><!--rgya gar skad/-->རྒྱ་གར་སྐད།</discussion>
+        </respdecl>
+    </origination>
+    <titlegrp>
+        <titledecl n="text">
+            <!--Title Information-->
+            <title lang="tib" type="normalized-title"><!--rgyud gyi rgyal po gser gyi rus sbal rdo rje theg pa rtsa ba'i rgyud/-->རྒྱུད་གྱི་རྒྱལ་པོ་གསེར་གྱི་རུས་སྦལ་རྡོ་རྗེ་ཐེག་པ་རྩ་བའི་རྒྱུད།</title>
+            <source>Peltsek Catalog</source>
+            <discussion type="normalized-title" rend="info"/>
+        </titledecl>
+        <titleinfo>
+            <!--Title Variants-->
+            <titlediv type="front" subtype="title-line">
+                <titledecl>
+                    <title lang="tib"><!--rgyud gyi rgyal po gser gyi rus sbal rdo rje theg pa rtsa ba'i rgyud/-->རྒྱུད་གྱི་རྒྱལ་པོ་གསེར་གྱི་རུས་སྦལ་རྡོ་རྗེ་ཐེག་པ་རྩ་བའི་རྒྱུད།</title>
+                </titledecl>
+                <pagination>
+                    <rs type="pagination" n="start">
+                        <num type="page"/>
+                        <num type="line"/>
+                    </rs>
+                    <rs type="pagination" n="end">
+                        <num type="page"/>
+                        <num type="line"/>
+                    </rs>
+                </pagination>
+            </titlediv>
+        </titleinfo>
+    </titlegrp>
+</tibbibl>
