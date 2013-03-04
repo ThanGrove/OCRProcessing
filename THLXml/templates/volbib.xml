@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tibbibl id="ngb-tb-v001-bib" level="volume">
+    <!-- For stand-alone validation: <!DOCTYPE tibbibl SYSTEM "http://www.thlib.org/global/xml/dtds/xtibbibl3.dtd">  -->
+	<controlinfo>
+		<sysid></sysid>
+		<date id="today'"></date>
+		<respStmt>
+			<resp>Cataloguer</resp>
+			<name>ndg</name>
+		</respStmt>
+		<resources>
+			<xref n="parent-cat">ngb/pt/ngb-pt-cat.xml</xref>
+		</resources>
+	</controlinfo>
+	<tibiddecl scheme="thl">
+		<!--Identification Information-->
+		<tibid type="collection" system="sigla">nbg<tibid type="edition" system="letter">dPal btsegs
+		    <altid lang="tib" system="letter"><!--dpal brtsegs-->དཔལ་བརྩེགས་</altid>
+				<tibid type="edition" system="sigla">Pt
+				    <tibid id="vid" type="volume" system="number">
+				        <altid id="vlet" system="letter" lang="tib"
+							></altid>
+					</tibid>
+				</tibid>
+			</tibid>
+		</tibid>
+	</tibiddecl>
+	<titledecl n="titlepage">
+	    <title lang="tib" type="title-page">༄།།སྔ་འགྱུར་རྒྱུད་འབུམ་ཕྱོགས་བསྒྲིགས་བཞུགས་སོ།། <rs id="vollabel">༼ཀ༽</rs></title>
+	    <title lang="tib" type="title-page"> དཔལ་བརྩེགས་བོད་ཡིག་དཔེ་རྙིང་ཞིབ་འཇུག་ཁང་ནས་བསྒྲིགས། མི་རིགས་དཔེ་སྐྲུན་ཁང་ནས་པར་དུ་བསྐྲུན།</title>
+	</titledecl>
+	
+	<physdecl>
+		<!--Physical Description-->
+		<divdecl type="texts">
+			<divcount id="texttotal" class="total"></divcount>
+		</divdecl>
+		<extentdecl type="text">
+			<extent id="textfirst" class="first">Tb.1</extent>
+		    <extent id="textlast" class="last">Tb.45</extent>
+		</extentdecl>
+		<extentdecl type="folio-sides">
+			<extent class="total">863</extent>
+		</extentdecl>
+		<pagination>
+			<rs type="pagination" n="start">
+				<num type="page">1</num>
+			</rs>
+			<rs type="pagination" n="end">
+				<num id="pagelast" type="page"></num>
+			</rs>
+		</pagination>
+		<physfacet type="materials">black ink on white paper</physfacet>
+		<physfacet lang="tib" type="script"><!--dbu can-->དབུ་ཅན</physfacet>
+		
+	</physdecl>
+</tibbibl>
