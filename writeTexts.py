@@ -6,7 +6,7 @@
 #     update and write out the data again.
 #
 #    Usage:
-#         python writeText.py type={bibl|text|both} path={path} start={num} end={num} texts={##,##,##,...}
+#         python writeTexts.py type={bibl|text|both} path={path} start={num} end={num} texts={##,##,##,...}
 #     
 #           All params option:
 #               type = type of output (bibliographic record or full text)

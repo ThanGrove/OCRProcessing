@@ -7,6 +7,7 @@ from . import Vars, Text
 from os import listdir
 from os.path import dirname, join
 from urllib import urlopen, urlencode
+from re import search
 
 my_path = dirname(__file__)
 tmpl_path = join(my_path, 'templates')
@@ -86,6 +87,10 @@ class Catalog():
       self.textcount = len(self.texts)
       self.volcount = len(self.vols)
       
+      print "Automatically fixing missing paginations and line numbers."
+      print "To disable this comment out Catalog.py line 92."
+      self.fixMissingPaginations()
+      self.fixMissingPaginations() # hack to cover those ending paginations where there is not start pagination for following texts
     except IOError:
       print "\nError! '{0}' is not a valid file name. Cannot continue. Sorry!".format(path)
       
@@ -93,13 +98,65 @@ class Catalog():
     return "THL Catalog"
   
   # General Functions
-  def write(self, path, doc="self"):
-    if doc == "self":
-      doc = self.tree
-    fout = codecs.open(path, 'w', encoding='utf-8')
-    fout.write(etree.tostring(doc, encoding=unicode))
-    fout.close()
-    
+  def write(self, path, outtype="simple", doc="self"):
+    if outtype == "simple":
+      if doc == "self":
+        doc = self.tree
+      fout = codecs.open(path, 'w', encoding='utf-8')
+      fout.write(etree.tostring(doc, encoding=unicode))
+      fout.close()
+      
+    # vols outtype produces a div structure of volumes in TEI format
+    elif outtype == "vols":
+      catroot = etree.Element("div", {"type":"vols"})
+      voltemplate = join(tmpl_path, 'toc-vol.xml')
+      txttemplate = join(tmpl_path, 'toc-text.xml')
+      for k, v in self.vols.iteritems():
+        vdoc = etree.parse(voltemplate).getroot()
+        vid = "ngb-pt-v" + str(int(k)).zfill(3)
+        print "VID is: {0}".format(vid)
+        vnum = int(k)
+        vdoc.set('id', vid)
+        self.setTemplateVal(vdoc, '/*//title[@id="vtitle"]', "Volume {0}".format(vnum))
+        vnumel = vdoc.xpath('/*//num[@id="vnum"]')[0]
+        vnumel.set('n',v['wylie'])
+        vnumel.set('value', str(vnum))
+        vnumel.text = v['tib']
+        vnumel.attrib.pop("id")
+        self.setTemplateVal(vdoc, '/*//num[@id="starttxt"]', v['texts'][0])
+        self.setTemplateVal(vdoc, '/*//num[@id="endtxt"]', v['texts'][-1])
+        for txt in self.getVolumeTOC(k, 'list'):
+          tdoc = etree.parse(txttemplate).getroot()
+          tid = "ngb-pt-{0}".format(txt["key"].zfill(4))
+          tdoc.set("id",tid)
+          title = txt["title"]
+          self.setTemplateVal(tdoc, '/*//title[@id="tibtitle"]', title)
+          self.setTemplateVal(tdoc, '/*//title[@id="wylietitle"]', self.tibToWylie(title))
+          self.setTemplateVal(tdoc, '/*//idno[@id="tid"]', txt["key"].zfill(4))
+          if txt["start"] is not None:
+            stpg = txt["start"].split('.')
+            self.setTemplateVal(tdoc, '/*//num[@id="stpg"]', stpg[0])
+            if len(stpg) == 2:
+              self.setTemplateVal(tdoc, '/*//num[@id="stln"]', stpg[1])
+            else:
+              self.setTemplateVal(tdoc, '/*//num[@id="stln"]', "1")
+          else:
+            self.removeAttributes(tdoc, 'id', ['stpg', 'stln'])
+          if txt["end"] is not None:
+            endpg = txt["end"].split('.')
+            self.setTemplateVal(tdoc, '/*//num[@id="endpg"]', endpg[0])
+            if len(endpg) == 2:
+              self.setTemplateVal(tdoc, '/*//num[@id="endln"]', endpg[1])
+            else:
+              self.setTemplateVal(tdoc, '/*//num[@id="endln"]', "6")
+          else:
+            self.removeAttributes(tdoc, 'id', ['endpg', 'endln'])
+          vdoc.append(tdoc)
+        catroot.append(vdoc)
+      fout = codecs.open(path, 'w', encoding='utf-8')
+      fout.write(etree.tostring(catroot, encoding=unicode))
+      fout.close()
+        
   # Volume Functions
   def importVolInfo(self, path):
     voldoc = etree.parse(path).getroot()
@@ -118,6 +175,89 @@ class Catalog():
             vobj['ocrfile'] = join(self.voldir, f)
             break
   
+  def fixMissingPaginations(self):
+    """This function inserts missing paginations based on the previous or subsequent texts' paginations"""
+    # First fix problem with start page
+    spct = 0
+    enct = 0
+    nofix = 0
+    tlist = {}
+    for tn in self.texts:
+      ptxt = self.texts[tn - 1] if tn > 1 else None
+      ntxt = self.texts[tn + 1] if tn < len(self.texts) else None
+      t = self.texts[tn]
+      tid = t.find("key").text
+      
+      # Fix Start pages
+      startpg = t.find("startpage").text
+      if isinstance(startpg, str):
+        # if no line number for start page assume, get line from prev text if page same
+        # otherwise assume line .1
+        linenm = ".1"
+        if not "." in startpg:
+          if ptxt is not None:
+            pend = ptxt.find("endpage").text
+            if isinstance(pend, str) and "." in pend:
+              pendpts = pend.split('.')
+              if pendpts[0] == startpg and len(pendpts) > 1:
+                linenm = "." + pendpts[1]
+          t.find("startpage").text = startpg + linenm
+          spct += 1
+          tlist[tid] = 1
+      elif ptxt is not None:
+          # if no page number then get it from the previous texts ending
+          pend = ptxt.find("endpage").text
+          if pend:
+            if ".6" in pend: # if previous text ends at .6 assume this test starts at .1 of next page
+              pend = str(int(float(pend)) + 1) + ".1"
+            t.find("startpage").text = pend
+            spct += 1
+            tlist[tid] = 1
+      else:
+        print "text {0} has no start page and can't find previous text".format(tid)
+        nofix += 1
+        
+      # Fix End pages
+      endpage = t.find("endpage").text
+      if isinstance(endpage, str):
+        # if not end line number get from next text start page if the same page
+        # else assume line 6
+        linenm = ".6"
+        if not "." in endpage:
+          if ntxt is not None:
+            nst = ntxt.find("startpage").text
+            if isinstance(nst, str) and "." in nst:
+              nstpts = nst.split('.')
+              if nstpts[0] == endpage and len(nstpts) > 1:
+                linenm = "." + nstpts[1]
+          t.find("endpage").text = endpage + linenm
+          enct += 1
+          tlist[tid] = 1
+      elif ntxt is not None:
+          nstart = ntxt.find("startpage").text
+          if nstart:
+            if ".1" in nstart or "." not in nstart:
+              nstart = str(int(float(nstart)) - 1) + ".6" # if next text starts at .1, assume this ends .6 of previous page
+            t.find("endpage").text = nstart
+            enct += 1
+            tlist[tid] = 1
+      else:
+        print "text {0} has no end page and can't find next text".format(tid)
+        nofix += 1
+        
+   # print "Startpages changed: {0}".format(spct)
+    #print "Endpages changed: {0}".format(enct)
+    #print "Missing pages unable to change: {0}".format(nofix)
+    #print "Total text records changed: {0}".format(len(tlist))
+    #print "Texts changed: "
+    #knum = 0
+    #for k in sorted(tlist.iterkeys(), key=int):
+    #  print k.zfill(3),
+    #  knum += 1
+    #  if knum % 10 == 0:
+    #    print ""
+    #print ""
+    
   def getVolume(self, n):
     n = int(n)
     if self.vols.has_key(n):
@@ -170,6 +310,10 @@ class Catalog():
     for k, txt in txts.iteritems():
       yield Text.Text(txt, self)
       
+  def iterVolumes(self):
+    vols = self.vols
+    for k, v in vols.iteritems():
+      yield v
     
   def tibToWylie(self, txt):
     url = 'http://local.thlib.org/cgi-bin/thl/lbow/wylie.pl?'  # Only Local
@@ -181,5 +325,36 @@ class Catalog():
     fh.close()
     return out
 
-
+  def setTemplateVal(self, doc, xp, val, cmt = ""):
+    atnm = "id"
+    match = search(r'\[\@(\w+)=', xp)
+    if match:
+      atnm = match.group(1)
+    els = doc.xpath(xp)
+    if len(els) == 0:
+      print "Xpath: {0} not found".format(xp)
+    else:
+      el = els[0]
+      for sel in el:
+        list(el).pop()
+      if cmt != "":
+        c = etree.Comment(cmt)
+        c.tail = val
+        el.insert(0, c)
+      else:
+        if isinstance(val, int) or isinstance(val, float):
+          val = str(val)
+        el.text = val
+      el.attrib.pop(atnm)
+  
+  def removeAttributes(self, doc, att, vals):
+    for v in vals:
+      xp = "/*//*[@" + att + "='" + v + "']"
+      els = doc.xpath(xp)
+      if len(els) > 0:
+        el = els[0]
+        el.attrib.pop(att)
+      else:
+        print "Could not find attribute to remove with xpath: {0}".format(xp)
+        
 #### End of XMLCat Class ###

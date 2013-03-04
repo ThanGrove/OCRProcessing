@@ -2,7 +2,8 @@
 
 from lxml import etree
 from . import Vars, OCRVolume
-from os.path import dirname, join
+from os.path import dirname, join, exists
+from os import makedirs
 from re import search
 from codecs import open
 from urllib import urlopen, urlencode
@@ -271,19 +272,23 @@ class Text(object):
     self.setTemplateVal(txml, "/*//idno[@id='thlid']", self.thlid)
     self.setTemplateVal(txml, "/*//date[@id='today']", today)
     vol = self.cat.getVolume(self.vnum)
-    ocrvol = OCRVolume.Vol(vol['ocrfile'], self.vnum)
-    
-    # Get the actual text from OCR Volume and put in div1 of text template
-    div1 = txml.xpath("/*//div1[@id='content']")[0]
-    div1.attrib.pop("id")
-    for child in div1:
-      div1.remove(child)
-    div1.append(ocrvol.getRange(self.startpage,self.endpage,'p'))
-    
-    # Writing out the XML Text file
-    fout = open(join(path, name), 'w', encoding='utf-8')
-    fout.write(etree.tostring(doc, encoding=unicode))
-    fout.close()
+    if vol.has_key('ocrfile') and vol['ocrfile'] is not None and vol['ocrfile'] != '':
+      ocrvol = OCRVolume.Vol(vol['ocrfile'], self.vnum)
+      # Get the actual text from OCR Volume and put in div1 of text template
+      div1 = txml.xpath("/*//div1[@id='content']")[0]
+      div1.attrib.pop("id")
+      for child in div1:
+        div1.remove(child)
+      div1.append(ocrvol.getRange(self.startpage,self.endpage,'p'))
+      folder = join(path, self.key.zfill(4))
+      if not exists(folder):
+        makedirs(folder)
+      # Writing out the XML Text file
+      fout = open(join(folder, name), 'w', encoding='utf-8')
+      fout.write(etree.tostring(doc, encoding=unicode))
+      fout.close()
+    else:
+      print "Text {0}: No OCR File for Volume {1}".format(self.key, self.vnum)
     
   def setTemplateVal(self, doc, xp, val, cmt = ""):
     atnm = "id"

@@ -6,6 +6,7 @@
 from os.path import dirname, join
 from THLXml import *
 import sys
+from codecs import open
 
 args= {}
 
@@ -19,14 +20,15 @@ for a in sys.argv:
 
 my_path = dirname(__file__)
 catpath = join(my_path, 'data', 'peltsek-with-lines.xml')
+cat = Catalog.Catalog(catpath, 'Peltsek')
+cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
 
-# example of vol 1.
-volpath = join(my_path, '..', 'volsource', 'nying-gyud-vol01_than_gDR0Y3578hI0.txt')
+outpath = join(my_path, 'out', 'peltsek-paginations.csv')
 
-vol =  OCRVolume.Vol(volpath, 1)
+fout = open(outpath, 'w', encoding='utf-8')
 
-
-vol.findMilestones("44")
-vol.findMilestones("45")
-vol.findMilestones("46")
-
+for t in cat.iterTexts():
+  ln = t.key + "," + t.startpage + "," + t.endpage + "\n"
+  fout.write(ln)
+  
+fout.close()
