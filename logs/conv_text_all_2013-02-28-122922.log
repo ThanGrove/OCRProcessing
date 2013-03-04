@@ -1,0 +1,5 @@
+Log file for Peltsek conversion
+arguments: {'path': 'texts', 'type': 'text'}
+Automatically fixing missing paginations and line numbers.
+To disable this comment out Catalog.py line 92.
+Writing 1 Text!

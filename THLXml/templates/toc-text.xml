@@ -1,0 +1,20 @@
+<div n="3" type="text">
+    <bibl n="text">
+        <title type="main">
+            <title id="tibtitle" lang="tib"></title>
+            <title id="wylietitle" lang="tib" rend="wyl">kun byed rgyal po/</title>
+            <title lang="eng"></title>
+        </title>
+        <idno id="tid" type="text"></idno>
+    </bibl>
+    <ab type="pagination">
+        <rs type="pagination" n="start">
+            <num id="stpg" type="page"></num>
+            <num id="stln" type="line"></num>
+        </rs>
+        <rs type="pagination" n="end">
+            <num id="endpg" type="page"></num>
+            <num id="endln" type="line"></num>
+        </rs>
+    </ab>
+</div>

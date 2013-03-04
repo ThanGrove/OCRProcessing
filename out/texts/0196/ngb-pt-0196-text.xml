@@ -1,0 +1,78 @@
+<!DOCTYPE TEI.2 SYSTEM "../data/xtib3.dtd">
+<TEI.2 id="ngb-pt-0196-text.xml">
+    <teiHeader lang="tib">
+        <fileDesc>
+            <titleStmt>
+                <title><!--gsang ba snying po de kho na nyid nges pa'i khro bo chen po stobs kyi rgyud rgyal/-->གསང་བ་སྙིང་པོ་དེ་ཁོ་ན་ཉིད་ངེས་པའི་ཁྲོ་བོ་ཆེན་པོ་སྟོབས་ཀྱི་རྒྱུད་རྒྱལ།</title>
+            </titleStmt>
+            <publicationStmt lang="eng">
+                <idno type="thdl">ngb-pt-0196-text</idno>
+                <publisher id="thdl">
+                    <orgName type="digital library">Tibetan &amp; Himalayan Library</orgName>
+                    <address><addrLine rend="url">http://www.thlib.org/</addrLine></address>
+                </publisher>
+                <pubPlace>
+                    <orgName type="university">University of Virginia</orgName>
+                    <placeName>
+                        <settlement type="city">Charlottesville</settlement>
+                        <region type="state">Virginia</region>
+                        <num type="zipcode">22904</num>
+                    </placeName>
+                    <date>2013-02-28</date>
+                </pubPlace>
+            </publicationStmt>
+            <!-- Put SeriesDesc entity reference here after conversion -->
+            <sourceDesc>
+                <p>
+                    <xptr id="tibbiblptr" n=""/>
+                </p>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language id="ara">Arabic</language>
+                <language id="bur">Burmese</language>
+                <language id="chi">Chinese</language>
+                <language id="dzo">Dzongkha</language>
+                <language id="eng">English</language>
+                <language id="fre">French</language>
+                <language id="ger">German</language>
+                <language id="hin">Hindi</language>
+                <language id="ind">Indonesian</language>
+                <language id="ita">Italian</language>
+                <language id="jpn">Japanese</language>
+                <language id="kor">Korean</language>
+                <language id="lao">Lao</language>
+                <language id="lat">Latin</language>
+                <language id="mal">Malayalam</language>
+                <language id="mnc">Manchu</language>
+                <language id="mon">Mongolian</language>
+                <language id="nxq">Naxi</language>
+                <language id="nep">Nepali</language>
+                <language id="pli">Pali</language>
+                <language id="pan">Panjabi</language>
+                <language id="per">Persian</language>
+                <language id="pol">Polish</language>
+                <language id="rus">Russian</language>
+                <language id="san">Sanskrit</language>
+                <language id="sin">Sinhala</language>
+                <language id="spa">Spanish</language>
+                <language id="tam">Tamil</language>
+                <language id="tel">Telugu</language>
+                <language id="tha">Thai</language>
+                <language id="tib">Tibetan</language>
+                <language id="tur">Turkish</language>
+                <language id="urd">Urdu</language>
+                <language id="vie">Vietnamese</language>
+            </langUsage>
+
+        </profileDesc>
+
+    </teiHeader>
+    <text>
+        <body>
+            <div1>
+                <p><!--start=136.3; end=141.1--><milestone unit="line" n="136.3"/>དཔོན་བི་རོ་ཙ་ནས་བསྒྱུར་ཅིང་ཞུས་ཏེ་གཏན་ལ་ཕབ་པའོ།། །། ༄༅། །རྒྱ་གར་སྐད་དུ། སྟུ་རྒྱ་གསྟོ་ཏ་ཏྭ་བི་ནི་༔་ཡ་མ་ཧྭ་ཀྲོ་དྷ་བ་ལ་རྭ་ཛ་ཏནྟྲ། བོད་སྐད་དུ། གསང་བའི་སྙིང་པོ་དེ་ཁོ་ན་ཉིད་<milestone unit="line" n="136.4"/>ངེས་པའི་ཁྲོ་བོ་ཆེན་པོ་སྟོབས་ཀྱི་རྒྱུད་རྒྱལ། དཔལ་ཀུན་ཏུ་བཟང་པོ་ལ་ཕྱག་འཚལ་ལོ། །འདི་སྐད་བདག་གིས་ཐོས་པའི་དུས་གཅིག་ན། འོག་མིན་གྱི་གནས་ཀུན་ཏུ་བཟང་མོའི་བྷ་ག་ཡངས་པའི་ཀློང་ན། ཕྱོགས་<milestone unit="line" n="136.5"/>བཅུ་དུས་གསུམ་ཀྱི་དེ་བཞིན་གཤེགས་པ་ཐམས་ཅད་ཀྱི་བདག་པོ་ཀུན་ཏུ་བཟང་པོ་ངེས་པར་འབྲེལ་ཏོ། །ཉིད་ཀྱི་སྐྱེས་བུ་ཆེན་པོ་རྡོ་རྗེ་སེམས་དཔའ་བཀའ་ནོད་དོ། །དེའི་ཚེ་དེའི་དུས་ན། འདུལ་བའི་དུས་ལ་བབས་<milestone unit="line" n="136.6"/>པ་གསང་བདག་ཉིད་ཀྱིས་ཞུས་པ། རྒྱ་ཆེ་རབ་ཟབ་དཔག་དཀའ་བ། །རང་བཞིན་ཆེ་ལ་ངེས་དོན་ཅན། །རྒྱལ་བ་རྣམས་ཀྱི་སྤྱོད་ཡུལ་འདི། །གསང་བ་བཞིས་ཆོད་དོན་མཛད་པ། །རྟོག་ཚོགས་ལོག་པར་ཞེན་པ་<milestone unit="page" n="137"/><milestone unit="line" n="137.1"/>༄༅། །རྣམས། །རྨད་དང་རྩ་བ་གང་གིས་སྤྱད། །ལོག་པའི་ལམ་དུ་ཞུགས་པ་རྣམས། །ཡང་དག་ལམ་དུ་ཇི་ལྟར་་གཟུད། ཤེན་ཏུ་གསང་བའི་མན་ངག་དོན། །སྣོད་ལྡན་ཀུན་ལ་ཇི་ལྟར་སྤྱིན། །ཞེས་ཆེད་དུ་<milestone unit="line" n="137.2"/>བརྗོད་དོ། །དེ་ནས་རྡོ་རྗེ་འཆང་ཆེན་པོས་དགོངས་པ་གསང་བའི་ཏིང་ངེ་འཛིན་གྱིས་འདི་གསུངས་སོ། །དཀྱིལ་འཁོར་བཞི་དང་སྲོག་ཤིང་གསུམ། །སུམ་ཅུ་གཉིས་དང་བཅུ་དྲུག་དང་། །བརྒྱད་དང་དྲུག་ཅུ་རྩ་བཞི་<milestone unit="line" n="137.3"/>ཡི། །དཀྱིལ་འཁོར་ལྡན་པའི་དཀྱིལ་འཁོར་ལ། །ཐབས་དང་ཤེས་རབ་གཉིས་མེད་པས། །ཨུ་ལི་ཀྭ་ལིའི་སྒྲ་དབྱངས་ལྡན། །རྒྱ་མཚོ་གཏིང་ནས་སྒྲོལ་མ་གཡོས། །མེ་ལྕེ་སྲིད་པ་གསུམ་ལ་ཁྱབ། །ནམ་མཁའི་བ་<milestone unit="line" n="137.4"/>བཞོས་བདེ་བ་ཆེ། །འཕགས་པ་འགྲོ་དྲུག་མཆོད་སྦྱིན་ཕུལ། །བདེ་བ་ཡེ་ཤེས་རོལ་མོ་ཡིས། །དུས་གསུམ་དགྱེས་པའི་མཆོད་པ་འབུལ། །ཟག་པ་མེད་པའི་བསོད་ནམས་ཀྱིས། །ཡེ་ཤེས་སྒྱུ་མ་རང་སྣང་བའོ། །ཡིད་<milestone unit="line" n="137.5"/>ཆོས་ཀུན་བཟང་ཡབ་ཡུམ་དང་། །ཉོན་མོངས་དབང་གིས་བསྐྱེད་པ་ནི། །རྩ་བ་ཕུང་པོའི་རླུད་ལྔ་དང་། །ཡན་ལག་སྐྱེ་མཆེད་རླུད་ལྔ་ཡིས། །ཕུང་སོགས་བཞི་བཅུ་རྩ་གཉིས་སྐུ། །ཚིག་ལ་ཁྱབ་བྱེད་རླུད་གནས་<milestone unit="line" n="137.6"/>པ། །གཟུགས་ཀྱི་ཕུང་པོ་རྣམ་སྣང་སྐུ། །ནམ་མཁའ་ལ་བསྐྱོད་དབྱིངས་ཕྱུག་ཡུམ། །སྣང་ལྔ་ཁ་དོག་མཐིང་གའི་བདག །མཆེད་སྣང་རྣམ་ཤེས་ཉེར་ཐོབ་ཐིམ། །མཐར་ཕྱིན་ཡེ་ཤེས་ཆོས་ཀྱི་དབྱིངས། །སྲོག་འཛིན་རླུད་<milestone unit="page" n="139"/><milestone unit="line" n="139.1"/>༄༅། །རེག་བྱ་བཞི། །སྤྱོད་པའི་དུས་ནས་དགའ་བ་བཞི། །གདུལ་བྱ་འདུལ་ཕྱིར་ཁྲོ་བཞིར་ཤར། །སྤྱད་ཆ་ཞེན་པ་རྟག་ཆད་བཞི། །གྲོལ་བའི་དུས་ན་ཁྲོ་མོར་ཤེས། །ཐབས་ཀྱི་འཛིན་ལ་ཡུམ་ལ་སྤྱོད། ཁེས་<milestone unit="line" n="139.2"/>རབ་ཡུམ་ལ་ཐབས་གནས་ཕྱིར། །དྲ་བར་འབྲེལ་དང་ཉོན་མོངས་འདུལ། །དེ་ཕྱིར་ཐུབ་དྲུག་སྤྲུལ་པ་སྤྲོ། །རང་བཞིན་གསང་བའི་སྙིང་པོ་འདི། །འགྲོ་བའི་རྒྱུད་ལ་ཡོངས་གབ་པ། །ལམ་རྐྱེན་རྒྱུད་དུ་སྟོན་པས་<milestone unit="line" n="139.3"/>སྦས། །སྐྱོན་ཡོད་མ་ཡིན་སྣོད་ངན་གསང་། །རང་བཞིན་བདེ་གཤེགས་གདུལ་བྱ་ཡིས། །འཁྲུལ་པའི་སྣང་བ་བསལ་བའི་ཕྱིར། །ཐབས་དང་ཤེས་རབ་མ་ནིང་རྒྱུད། །འདུལ་བ་མདོ་སྡེ་ཆོས་མངོན་དང་། །སྐུ་དང་<milestone unit="line" n="139.4"/>གསུང་དང་ཐུགས་ཀྱི་རྒྱུད། །ཕྱོགས་བཅུའི་འཇིག་རྟེན་རྡུལ་སྙེད་དུ། །འགྲོ་བའི་ཆེད་དུ་སྤྲོས་པ་རྣམས། །འདི་ནས་འཕྲོས་ནས་འདིར་འདུ་བས། །སྡེ་སྣོད་ཀུན་གྱི་རྩ་བར་བཤད། །དེ་ཕྱིར་རྒྱུད་ལུང་མན་ངག་<milestone unit="line" n="139.5"/>མཚན། །རབ་འབྲིང་ཐ་མ་འགྲོར་འཇུག་པ། །རྒྱལ་བ་ཀུན་གྱི་ངེས་པའི་དོན། །ཏ་ན་ག་ཎ་སྤྱོད་པ་རླབས་པོ་ཆེ། །ལྟ་སྤྱོད་དཀྱིལ་འཁོར་དབང་དམ་དང་། །ཕྲིན་ལས་སྒྲུབ་མཆོད་ཏིང་ངེ་འཛིན། །དབང་བཅུ་དབང་ལྡན་<milestone unit="line" n="139.6"/>ཆེ་བ་པོ། །སེམས་དཔའ་སངས་རྒྱས་ཀུན་གྱི་དངོས། །ལོག་སེལ་དད་པའི་མཆོག་ལུས་ཅན། །འདུལ་བའི་དུས་དག་གསང་སྔགས་མེད། །ཅེས་བརྗོད་པས། དེབཞིནགཤེགསཔའིདགོངས་པ་ཟབ་མོ་ཐུགས་སུ་ཆུད་<milestone unit="page" n="140"/><milestone unit="line" n="140.1"/>པར་གྱུར་ཏོ། །དེ་ནས་དེ་བཞིན་གཤེགས་པ་བཙུན་མོའི་ཚོགས་དང་བཅས་པས་འདི་བརྗོད་དོ། །ཨེ་མ་ཧོ། །ཨེ་བ༷་མ་ཡ་དགྱེས་པ་ཆེ། །སྐྱེ་མཆེད་ཁམས་རྣམས་མང་པོ་ཀུན། །བྱང་ཆུབ་སེམས་དཔའི་དཀྱིལ་འཁོར་<milestone unit="line" n="140.2"/>ཉིད། །ཕྱོགས་བཅུའི་རྡུལ་སྙེད་སྤྲུལ་པ་སྤྲོ། །སྤྲོས་མེད་བསྡུ་མེད་སྤྲོས་པ་ཉིད། །ཐུགས་དྲུག་ཡེ་ཤེས་ངང་དུ་ཞུབྲ། །ཅེས་བརྗོད་པས། དེ་དག་འདུལ་པར་དེ་བཞིན་གཤེགས་པ་ཉིད་ཀྱིས་མཁྱེན་ཏོ། །དེ་ནས་གསང་<milestone unit="line" n="140.3"/>བའི་བདག་པོས། བསྟོད་དེ་རྗེས་སུ་ཡི་རང་ནས་བསྡུས་ཏེ་གཏད་པ། ཕྱོགས་བཅུ་དུས་གསུམ་བདེ་གཤེགས་བདག །གཏི་མུག་ཆེན་པོའི་རང་བཞིན་ཅན། །འདོད་ཆགས་ཆེན་པོའི་བདག་པོ་སྟེ། །ཞེ་སྡང་ཆེན་པོའི་ངོ་<milestone unit="line" n="140.4"/>བོ་ཉིད། །དག་པ་རྣམ་དག་སྐུ་གསུང་བདག །གསལ་བར་བདེ་བ་དགྱེས་པ་ཧོ། །ཞེས་བརྗོད་དོ། །དེ་ནས་ངག་ཏུ་འདི་བརྗོད་དོ། །ལོག་ལྟ་ཡོངས་སུ་གཏད་དེ་བསྐྲད་པ་ནི། །ཨོ་སུསྟ་ནི་སུསྒྱུ་ཧཱུཾ༷། གྲོཎྜ་གྲིཎྜ་ཧཱུཾ༷། གྲིསྦྱི་པ་<milestone unit="line" n="140.5"/>ཡ་གྲིསྣྲི་པ་ཡ་ཧུ༷། ཨུ་ན་ཡ་ཧོ། བྷ་ག་ལྷུན་བིབྱུ་རྭ་ཛ་ཧཱུཾ༷་ཕཊ། ཨོ་སྙ་ཀྟ་ལྷུ་ཏ་ཡ་སྒྱུ་ཏ་ཡ། སརྦ་དུཛི་ན་ཕཊ། ཀི་ལི་ཀི་ལ་ཡ། སརྦ་བཱ་པ༷་ཕཊ། ཕཊ་ཕཊ་ཧཱུཾ༷་ཧཱུཾ༷་བཛྲ་ཀི་ལ་ཡ། བཛྲ་དྷ་རོ་ཨུཙྭ་པ་ཡ་ཏི་ཀྭ་ཡ་ལྷུཀ་ཙིཀྟ་བཛྲ་<milestone unit="line" n="140.6"/>ཀི་ལ་ཡ་ཧཱུཾ༷་ཕཊ། ཅེས་སྣོད་མ་ཡིན་རྣམས་བསྐྲད་ཅིང་མི་ལྡང་བར་བྱས་ཏེ། བུད་མེད་ཀྱི་ཚོགས་གང་ཡིན་པ་ལ་ཡོངས་སུ་གཏད་ཅིང་ཆོས་ཀྱི་མིག་ཅན་ལ་སྤྲོ་བར་གྱུར་ཏོ། །སྟོབས་ཀྱི་དབང་ཕྱུག་བསྒྲུབ་པ། དཀའ་<milestone unit="page" n="141"/><milestone unit="line" n="141.1"/>༄༅། །བ་སྤྱོད་པ་མན་ངག་གི་སྙིང་པོ་ཞེས་བྱ་བའི་རྒྱུད་རྫོགས་སོ།། །། ༄༅། །རྒྱ་གར་སྐད་དུ། སརྦ་བུརྙ་ས་མ་ཡོ་ག་ཏནྟྲ་རྭ་ཛ་ནཱ་མ། བོད་སྐད་དུ་སངས་རྒྱས་ཐམས་ཅད་མཉམ་པར་</p></div1>
+        </body>
+    </text>
+</TEI.2>

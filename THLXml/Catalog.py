@@ -156,6 +156,11 @@ class Catalog():
       fout = codecs.open(path, 'w', encoding='utf-8')
       fout.write(etree.tostring(catroot, encoding=unicode))
       fout.close()
+      
+    elif outtype == "volbibs":
+      voltemplate = join(tmpl_path, 'volbib.xml')
+      for k, v in self.vols.iteritems():
+        print k, v
         
   # Volume Functions
   def importVolInfo(self, path):

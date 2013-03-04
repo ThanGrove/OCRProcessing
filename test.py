@@ -25,10 +25,12 @@ cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
 
 outpath = join(my_path, 'out', 'peltsek-paginations.csv')
 
-fout = open(outpath, 'w', encoding='utf-8')
+cat.write("","volbibs")
 
-for t in cat.iterTexts():
-  ln = t.key + "," + t.startpage + "," + t.endpage + "\n"
-  fout.write(ln)
+#fout = open(outpath, 'w', encoding='utf-8')
+
+#for t in cat.iterTexts():
+#  ln = t.key + "," + t.startpage + "," + t.endpage + "\n"
+ # fout.write(ln)
   
-fout.close()
+#fout.close()

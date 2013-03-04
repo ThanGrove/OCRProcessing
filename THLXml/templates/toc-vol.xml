@@ -1,0 +1,12 @@
+<div type="volume" n="2">
+    <bibl n="vol">
+        <title type="main">
+            <title id="vtitle" lang="eng"></title>
+        </title>
+        <num id="vnum" lang="tib" type="volume" ></num> 
+        <extent class="texts">
+            <num id="starttxt" n="start" value=""></num>
+            <num id="endtxt" n="end" value=""></num>
+        </extent>
+    </bibl>
+</div>
