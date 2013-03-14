@@ -1,0 +1,53 @@
+<tibbibl level="volume" id="ngb-pt-v010">
+    <!-- For stand-alone validation: <!DOCTYPE tibbibl SYSTEM "http://www.thlib.org/global/xml/dtds/xtibbibl3.dtd">  -->
+    <controlinfo>
+        <sysid>ngb-pt-v010</sysid>
+        <date>2013-03-04</date>
+        <respStmt>
+            <resp>Cataloguer</resp>
+            <name>ndg</name>
+        </respStmt>
+        <resources>
+            <xref n="parent-cat">ngb/pt/ngb-pt-cat.xml</xref>
+        </resources>
+    </controlinfo>
+    <tibiddecl scheme="thl">
+        <!--Identification Information-->
+        <tibid type="collection" system="sigla">nbg<tibid type="edition" system="letter">dPal btsegs <altid lang="tib" system="letter"
+                    ><!--dpal brtsegs-->དཔལ་བརྩེགས་</altid>
+                <tibid type="edition" system="sigla">Pt <tibid type="volume" system="number">10<altid system="letter" lang="tib"><!--tha-->ཐ</altid>
+                    </tibid>
+                </tibid>
+            </tibid>
+        </tibid>
+    </tibiddecl>
+    <titledecl n="titlepage">
+        <title lang="tib" type="title-page">༄།།སྔ་འགྱུར་རྒྱུད་འབུམ་ཕྱོགས་བསྒྲིགས་བཞུགས་སོ།། <rs>༼ཐ༽</rs></title>
+        <title lang="tib" type="title-page"> དཔལ་བརྩེགས་བོད་ཡིག་དཔེ་རྙིང་ཞིབ་འཇུག་ཁང་ནས་བསྒྲིགས། མི་རིགས་དཔེ་སྐྲུན་ཁང་ནས་པར་དུ་བསྐྲུན།</title>
+    </titledecl>
+
+    <physdecl>
+        <!--Physical Description-->
+        <divdecl type="texts">
+            <divcount class="total">2</divcount>
+        </divdecl>
+        <extentdecl type="text">
+            <extent class="first">Pt.161</extent>
+            <extent class="last">Pt.162</extent>
+        </extentdecl>
+        <extentdecl type="folio-sides">
+            <extent class="total">760</extent>
+        </extentdecl>
+        <pagination>
+            <rs type="pagination" n="start">
+                <num type="page">1</num>
+            </rs>
+            <rs type="pagination" n="end">
+                <num type="page">760</num>
+            </rs>
+        </pagination>
+        <physfacet type="materials">black ink on white paper</physfacet>
+        <physfacet lang="tib" type="script"><!--dbu can-->དབུ་ཅན</physfacet>
+
+    </physdecl>
+</tibbibl>

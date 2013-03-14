@@ -8,17 +8,13 @@ from os import listdir
 from os.path import dirname, join
 from urllib import urlopen, urlencode
 from re import search
+from datetime import date
+import time
 
 my_path = dirname(__file__)
 tmpl_path = join(my_path, 'templates')
 data_path = join(my_path, '..', 'data')
 vol_dir = join(my_path, '..', '..', 'volsource') # directory which contains OCR volume files
-
-def loadPeltsek():
-  catpath = join(data_path, 'peltsek-with-lines.xml')
-  cat = Catalog(catpath, 'Peltsek')
-  cat.importVolInfo(join(data_path, 'ngb-pt-vols.xml'))
-  return cat
 
 #### Catalog Class   ####
 class Catalog():
@@ -99,6 +95,7 @@ class Catalog():
   
   # General Functions
   def write(self, path, outtype="simple", doc="self"):
+    """Function to write either the catalog, volume tocs or volume bibls"""
     if outtype == "simple":
       if doc == "self":
         doc = self.tree
@@ -157,10 +154,28 @@ class Catalog():
       fout.write(etree.tostring(catroot, encoding=unicode))
       fout.close()
       
+    # Output of volume bibls using template
     elif outtype == "volbibs":
       voltemplate = join(tmpl_path, 'volbib.xml')
       for k, v in self.vols.iteritems():
-        print k, v
+        vdoc = etree.parse(voltemplate).getroot()
+        vid = "ngb-pt-v" + str(int(k)).zfill(3)
+        print "VID is: {0}".format(vid)
+        vnum = int(k)
+        vdoc.set('id', vid)
+        self.setTemplateVal(vdoc, '/*//sysid[@id="sysid"]',vid)
+        self.setTemplateVal(vdoc, '/*/controlinfo/date', str(date.today()))
+        self.setTemplateVal(vdoc, '/*//tibid[@id="vid"]',k)
+        self.setTemplateVal(vdoc, '/*//altid[@id="vlet"]',v['tib'],v['wylie'])
+        self.setTemplateVal(vdoc, '/*//rs[@id="vollabel"]',u"༼" + v['tib'] + u"༽")
+        self.setTemplateVal(vdoc, '/*//divcount[@id="texttotal"]',v['tcount'])
+        self.setTemplateVal(vdoc, '/*//extent[@id="textfirst"]',"Pt." + str(v['texts'][0]))
+        self.setTemplateVal(vdoc, '/*//extent[@id="textlast"]',"Pt." + str(v['texts'][-1]))
+        self.setTemplateVal(vdoc, '/*//extent[@id="sides"]',v['lastpage'])
+        self.setTemplateVal(vdoc, '/*//num[@id="pagelast"]',v['lastpage'])
+        fout = codecs.open(join(path, vid + "-bib.xml"), 'w', encoding='utf-8')
+        fout.write(etree.tostring(vdoc, encoding=unicode))
+        fout.close()
         
   # Volume Functions
   def importVolInfo(self, path):
@@ -175,6 +190,9 @@ class Catalog():
         vobj['dox'] = vol.find('dox').text
         vobj['tcount'] = vol.find('textcount').text
         vsstr = "vol" + str(vnum).zfill(2)
+        lasttext = self.getText(vobj['texts'][-1])
+        if lasttext:
+          vobj['lastpage'] = int(float(lasttext.endpage))
         for f in listdir(self.voldir):
           if vsstr in f:
             vobj['ocrfile'] = join(self.voldir, f)
@@ -362,4 +380,5 @@ class Catalog():
       else:
         print "Could not find attribute to remove with xpath: {0}".format(xp)
         
+  
 #### End of XMLCat Class ###

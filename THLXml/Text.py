@@ -4,7 +4,7 @@ from lxml import etree
 from . import Vars, OCRVolume
 from os.path import dirname, join, exists
 from os import makedirs
-from re import search
+import re
 from codecs import open
 from urllib import urlopen, urlencode
 from copy import deepcopy
@@ -81,7 +81,7 @@ class Text(object):
   def set(self, atnm, val):
     setattr(self, atnm, val)
     if atnm == "thlid":
-      match = search(r'^([^\-]+)-([^\-]+)', val)
+      match = re.search(r'^([^\-]+)-([^\-]+)', val)
       if match:
         self.coll = match.group(1)
         self.ed = match.group(2)
@@ -257,42 +257,65 @@ class Text(object):
     fout.write(etree.tostring(doc, encoding=unicode))
     fout.close()
     
-  def writeText(self, path = None, name = None):
+  def writeText(self, path = None, outtype = "xml"):
+    """A function for writing the text to a file. Will write plain text or TEI XML marked up version"""
+    
     if path == None:
       path = join(my_path, '..')
-    if name == None:
+
+    # Output a plain version of the text
+    if outtype == "plain":
+      name = self.thlid + ".txt"
+      print name
+      vol = self.cat.getVolume(self.vnum)
+      if vol.has_key('ocrfile') and vol['ocrfile'] is not None and vol['ocrfile'] != '':
+        ocrvol = OCRVolume.Vol(vol['ocrfile'], self.vnum)
+        outtxt = ocrvol.getRange(self.startpage,self.endpage,'p')
+        # Writing out the XML Text file
+        fout = open(join(path, name), 'w', encoding='utf-8')
+        xmlstr = etree.tostring(outtxt, encoding=unicode)
+        # Strip out tags but put a crlf in space just before page break
+        ptxt = re.sub('<milestone unit="page"[^>]+>', "{page}", xmlstr)
+        ptxt = re.sub('<[^>]+>', "", ptxt)
+        ptxt = re.sub(r'\s+([\S]+){page}', r' \n\1', ptxt)
+        fout.write(ptxt)
+        fout.close()
+      else:
+        print "Text {0}: No OCR File for Volume {1}".format(self.key, self.vnum)
+        
+    # Output an TEI XML version of the text
+    else: 
       name = self.thlid + ".xml"
-      
-    # Read in the template tibbibl
-    template = join(tmpl_path, 'text.xml')
-    doc = etree.parse(template)
-    txml = doc.getroot()
-    txml.set('id', self.thlid + ".xml")
-    self.setTemplateVal(txml, "/*//title[@id='title']", self.title, tibToWylie(self.title))
-    self.setTemplateVal(txml, "/*//idno[@id='thlid']", self.thlid)
-    self.setTemplateVal(txml, "/*//date[@id='today']", today)
-    vol = self.cat.getVolume(self.vnum)
-    if vol.has_key('ocrfile') and vol['ocrfile'] is not None and vol['ocrfile'] != '':
-      ocrvol = OCRVolume.Vol(vol['ocrfile'], self.vnum)
-      # Get the actual text from OCR Volume and put in div1 of text template
-      div1 = txml.xpath("/*//div1[@id='content']")[0]
-      div1.attrib.pop("id")
-      for child in div1:
-        div1.remove(child)
-      div1.append(ocrvol.getRange(self.startpage,self.endpage,'p'))
-      folder = join(path, self.key.zfill(4))
-      if not exists(folder):
-        makedirs(folder)
-      # Writing out the XML Text file
-      fout = open(join(folder, name), 'w', encoding='utf-8')
-      fout.write(etree.tostring(doc, encoding=unicode))
-      fout.close()
-    else:
-      print "Text {0}: No OCR File for Volume {1}".format(self.key, self.vnum)
+      # Read in the template tibbibl
+      template = join(tmpl_path, 'text.xml')
+      doc = etree.parse(template)
+      txml = doc.getroot()
+      txml.set('id', self.thlid + ".xml")
+      self.setTemplateVal(txml, "/*//title[@id='title']", self.title, tibToWylie(self.title))
+      self.setTemplateVal(txml, "/*//idno[@id='thlid']", self.thlid)
+      self.setTemplateVal(txml, "/*//date[@id='today']", today)
+      vol = self.cat.getVolume(self.vnum)
+      if vol.has_key('ocrfile') and vol['ocrfile'] is not None and vol['ocrfile'] != '':
+        ocrvol = OCRVolume.Vol(vol['ocrfile'], self.vnum)
+        # Get the actual text from OCR Volume and put in div1 of text template
+        div1 = txml.xpath("/*//div1[@id='content']")[0]
+        div1.attrib.pop("id")
+        for child in div1:
+          div1.remove(child)
+        div1.append(ocrvol.getRange(self.startpage,self.endpage,'p'))
+        folder = join(path, self.key.zfill(4))
+        if not exists(folder):
+          makedirs(folder)
+        # Writing out the XML Text file
+        fout = open(join(folder, name), 'w', encoding='utf-8')
+        fout.write(etree.tostring(doc, encoding=unicode))
+        fout.close()
+      else:
+        print "Text {0}: No OCR File for Volume {1}".format(self.key, self.vnum)
     
   def setTemplateVal(self, doc, xp, val, cmt = ""):
     atnm = "id"
-    match = search(r'\[\@(\w+)=', xp)
+    match = re.search(r'\[\@(\w+)=', xp)
     if match:
       atnm = match.group(1)
     els = doc.xpath(xp)

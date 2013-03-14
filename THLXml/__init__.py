@@ -1,1 +1,1 @@
-__all__ = ["Vars", "Catalog", "Text", "OCRVolume"]
+__all__ = ["Vars", "Catalog", "Text", "OCRVolume", "Functions"]

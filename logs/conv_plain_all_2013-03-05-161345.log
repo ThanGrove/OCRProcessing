@@ -1,0 +1,338 @@
+Log file for Peltsek conversion
+arguments: {'path': 'plaintexts', 'type': 'plain'}
+Automatically fixing missing paginations and line numbers.
+To disable this comment out Catalog.py line 92.
+Writing plain text for 1
+ngb-pt-0001-bib.txt
+Can't find page 1, trying next page
+Writing plain text for 2
+ngb-pt-0002-bib.txt
+Writing plain text for 3
+ngb-pt-0003-bib.txt
+Writing plain text for 4
+ngb-pt-0004-bib.txt
+Writing plain text for 5
+ngb-pt-0005-bib.txt
+Writing plain text for 6
+ngb-pt-0006-bib.txt
+Writing plain text for 7
+ngb-pt-0007-bib.txt
+Writing plain text for 8
+ngb-pt-0008-bib.txt
+Writing plain text for 9
+ngb-pt-0009-bib.txt
+Writing plain text for 10
+ngb-pt-0010-bib.txt
+Writing plain text for 11
+ngb-pt-0011-bib.txt
+Writing plain text for 12
+ngb-pt-0012-bib.txt
+Writing plain text for 13
+ngb-pt-0013-bib.txt
+Writing plain text for 14
+ngb-pt-0014-bib.txt
+Writing plain text for 15
+ngb-pt-0015-bib.txt
+Writing plain text for 16
+ngb-pt-0016-bib.txt
+Writing plain text for 17
+ngb-pt-0017-bib.txt
+Writing plain text for 18
+ngb-pt-0018-bib.txt
+Writing plain text for 19
+ngb-pt-0019-bib.txt
+None numeric n value: tbocrtifs/ngb_vol01/out_0697.tif
+Writing plain text for 20
+ngb-pt-0020-bib.txt
+Can't find page 1, trying next page
+Writing plain text for 21
+ngb-pt-0021-bib.txt
+Writing plain text for 22
+ngb-pt-0022-bib.txt
+Writing plain text for 23
+ngb-pt-0023-bib.txt
+Writing plain text for 24
+ngb-pt-0024-bib.txt
+Writing plain text for 25
+ngb-pt-0025-bib.txt
+Writing plain text for 26
+ngb-pt-0026-bib.txt
+Writing plain text for 27
+ngb-pt-0027-bib.txt
+Writing plain text for 28
+ngb-pt-0028-bib.txt
+Writing plain text for 29
+ngb-pt-0029-bib.txt
+Writing plain text for 30
+ngb-pt-0030-bib.txt
+Writing plain text for 31
+ngb-pt-0031-bib.txt
+Writing plain text for 32
+ngb-pt-0032-bib.txt
+Writing plain text for 33
+ngb-pt-0033-bib.txt
+Writing plain text for 34
+ngb-pt-0034-bib.txt
+Writing plain text for 35
+ngb-pt-0035-bib.txt
+Writing plain text for 36
+ngb-pt-0036-bib.txt
+Writing plain text for 37
+ngb-pt-0037-bib.txt
+Writing plain text for 38
+ngb-pt-0038-bib.txt
+Writing plain text for 39
+ngb-pt-0039-bib.txt
+Writing plain text for 40
+ngb-pt-0040-bib.txt
+Writing plain text for 41
+ngb-pt-0041-bib.txt
+Writing plain text for 42
+ngb-pt-0042-bib.txt
+Writing plain text for 43
+ngb-pt-0043-bib.txt
+Writing plain text for 44
+ngb-pt-0044-bib.txt
+Writing plain text for 45
+ngb-pt-0045-bib.txt
+Writing plain text for 46
+ngb-pt-0046-bib.txt
+Writing plain text for 47
+ngb-pt-0047-bib.txt
+Writing plain text for 48
+ngb-pt-0048-bib.txt
+Writing plain text for 49
+ngb-pt-0049-bib.txt
+Writing plain text for 50
+ngb-pt-0050-bib.txt
+Can't find page 1, trying next page
+Writing plain text for 51
+ngb-pt-0051-bib.txt
+Writing plain text for 52
+ngb-pt-0052-bib.txt
+Writing plain text for 53
+ngb-pt-0053-bib.txt
+Writing plain text for 54
+ngb-pt-0054-bib.txt
+Writing plain text for 55
+ngb-pt-0055-bib.txt
+Can't find page 1, trying next page
+Writing plain text for 56
+ngb-pt-0056-bib.txt
+Writing plain text for 57
+ngb-pt-0057-bib.txt
+Writing plain text for 58
+ngb-pt-0058-bib.txt
+Writing plain text for 59
+ngb-pt-0059-bib.txt
+Writing plain text for 60
+ngb-pt-0060-bib.txt
+Writing plain text for 61
+ngb-pt-0061-bib.txt
+Writing plain text for 62
+ngb-pt-0062-bib.txt
+Writing plain text for 63
+ngb-pt-0063-bib.txt
+Writing plain text for 64
+ngb-pt-0064-bib.txt
+Writing plain text for 65
+ngb-pt-0065-bib.txt
+Writing plain text for 66
+ngb-pt-0066-bib.txt
+Can't find page 1, trying next page
+Writing plain text for 67
+ngb-pt-0067-bib.txt
+Writing plain text for 68
+ngb-pt-0068-bib.txt
+Writing plain text for 69
+ngb-pt-0069-bib.txt
+Writing plain text for 70
+ngb-pt-0070-bib.txt
+Writing plain text for 71
+ngb-pt-0071-bib.txt
+Writing plain text for 72
+ngb-pt-0072-bib.txt
+Writing plain text for 73
+ngb-pt-0073-bib.txt
+Writing plain text for 74
+ngb-pt-0074-bib.txt
+Writing plain text for 75
+ngb-pt-0075-bib.txt
+Writing plain text for 76
+ngb-pt-0076-bib.txt
+Writing plain text for 77
+ngb-pt-0077-bib.txt
+Writing plain text for 78
+ngb-pt-0078-bib.txt
+Writing plain text for 79
+ngb-pt-0079-bib.txt
+Writing plain text for 80
+ngb-pt-0080-bib.txt
+Writing plain text for 81
+ngb-pt-0081-bib.txt
+Writing plain text for 82
+ngb-pt-0082-bib.txt
+Writing plain text for 83
+ngb-pt-0083-bib.txt
+Writing plain text for 84
+ngb-pt-0084-bib.txt
+Writing plain text for 85
+ngb-pt-0085-bib.txt
+Writing plain text for 86
+ngb-pt-0086-bib.txt
+Writing plain text for 87
+ngb-pt-0087-bib.txt
+None numeric n value: tbocrtifs/ngb_vol06/out_0770.tif
+Writing plain text for 88
+ngb-pt-0088-bib.txt
+Writing plain text for 89
+ngb-pt-0089-bib.txt
+Writing plain text for 90
+ngb-pt-0090-bib.txt
+Writing plain text for 91
+ngb-pt-0091-bib.txt
+Writing plain text for 92
+ngb-pt-0092-bib.txt
+Writing plain text for 93
+ngb-pt-0093-bib.txt
+Writing plain text for 94
+ngb-pt-0094-bib.txt
+Writing plain text for 95
+ngb-pt-0095-bib.txt
+Writing plain text for 96
+ngb-pt-0096-bib.txt
+Writing plain text for 97
+ngb-pt-0097-bib.txt
+Writing plain text for 98
+ngb-pt-0098-bib.txt
+Writing plain text for 99
+ngb-pt-0099-bib.txt
+Writing plain text for 100
+ngb-pt-0100-bib.txt
+Writing plain text for 101
+ngb-pt-0101-bib.txt
+Writing plain text for 102
+ngb-pt-0102-bib.txt
+Writing plain text for 103
+ngb-pt-0103-bib.txt
+Writing plain text for 104
+ngb-pt-0104-bib.txt
+Can't find page 1, trying next page
+None numeric n value: tbocrtifs/ngb_vol08/out_0071.tif
+None numeric n value: tbocrtifs/ngb_vol08/out_0072.tif
+Writing plain text for 105
+ngb-pt-0105-bib.txt
+Writing plain text for 106
+ngb-pt-0106-bib.txt
+Writing plain text for 107
+ngb-pt-0107-bib.txt
+Writing plain text for 108
+ngb-pt-0108-bib.txt
+Writing plain text for 109
+ngb-pt-0109-bib.txt
+Writing plain text for 110
+ngb-pt-0110-bib.txt
+Writing plain text for 111
+ngb-pt-0111-bib.txt
+Writing plain text for 112
+ngb-pt-0112-bib.txt
+Writing plain text for 113
+ngb-pt-0113-bib.txt
+Writing plain text for 114
+ngb-pt-0114-bib.txt
+Writing plain text for 115
+ngb-pt-0115-bib.txt
+Writing plain text for 116
+ngb-pt-0116-bib.txt
+Writing plain text for 117
+ngb-pt-0117-bib.txt
+Writing plain text for 118
+ngb-pt-0118-bib.txt
+Writing plain text for 119
+ngb-pt-0119-bib.txt
+Writing plain text for 120
+ngb-pt-0120-bib.txt
+Writing plain text for 121
+ngb-pt-0121-bib.txt
+Writing plain text for 122
+ngb-pt-0122-bib.txt
+Writing plain text for 123
+ngb-pt-0123-bib.txt
+Writing plain text for 124
+ngb-pt-0124-bib.txt
+Writing plain text for 125
+ngb-pt-0125-bib.txt
+Writing plain text for 126
+ngb-pt-0126-bib.txt
+Writing plain text for 127
+ngb-pt-0127-bib.txt
+Writing plain text for 128
+ngb-pt-0128-bib.txt
+Writing plain text for 129
+ngb-pt-0129-bib.txt
+Writing plain text for 130
+ngb-pt-0130-bib.txt
+Writing plain text for 131
+ngb-pt-0131-bib.txt
+Writing plain text for 132
+ngb-pt-0132-bib.txt
+Writing plain text for 133
+ngb-pt-0133-bib.txt
+Writing plain text for 134
+ngb-pt-0134-bib.txt
+Writing plain text for 135
+ngb-pt-0135-bib.txt
+Writing plain text for 136
+ngb-pt-0136-bib.txt
+Writing plain text for 137
+ngb-pt-0137-bib.txt
+Writing plain text for 138
+ngb-pt-0138-bib.txt
+Writing plain text for 139
+ngb-pt-0139-bib.txt
+Writing plain text for 140
+ngb-pt-0140-bib.txt
+None numeric n value: tbocrtifs/ngb_vol08/out_0779.tif
+Writing plain text for 141
+ngb-pt-0141-bib.txt
+Can't find page 1, trying next page
+Writing plain text for 142
+ngb-pt-0142-bib.txt
+Writing plain text for 143
+ngb-pt-0143-bib.txt
+Writing plain text for 144
+ngb-pt-0144-bib.txt
+Writing plain text for 145
+ngb-pt-0145-bib.txt
+Writing plain text for 146
+ngb-pt-0146-bib.txt
+Writing plain text for 147
+ngb-pt-0147-bib.txt
+Writing plain text for 148
+ngb-pt-0148-bib.txt
+Writing plain text for 149
+ngb-pt-0149-bib.txt
+Writing plain text for 150
+ngb-pt-0150-bib.txt
+Writing plain text for 151
+ngb-pt-0151-bib.txt
+Writing plain text for 152
+ngb-pt-0152-bib.txt
+Writing plain text for 153
+ngb-pt-0153-bib.txt
+Writing plain text for 154
+ngb-pt-0154-bib.txt
+Writing plain text for 155
+ngb-pt-0155-bib.txt
+Writing plain text for 156
+ngb-pt-0156-bib.txt
+Writing plain text for 157
+ngb-pt-0157-bib.txt
+Writing plain text for 158
+ngb-pt-0158-bib.txt
+Writing plain text for 159
+ngb-pt-0159-bib.txt
+Writing plain text for 160
+ngb-pt-0160-bib.txt
+Can't find page 0, trying next page
+Can't find page 1, trying n

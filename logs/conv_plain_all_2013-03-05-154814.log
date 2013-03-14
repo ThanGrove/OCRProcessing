@@ -1,0 +1,7 @@
+Log file for Peltsek conversion
+arguments: {'path': 'plaintexts', 'type': 'plain'}
+Automatically fixing missing paginations and line numbers.
+To disable this comment out Catalog.py line 92.
+Writing plain text for 1
+ngb-pt-0001-bib.txt
+Can't find page 1, trying next page

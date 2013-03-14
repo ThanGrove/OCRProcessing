@@ -3,18 +3,19 @@
 #   A script to read in catalog data, check the OCR volumes for the line the text begins and ends on
 #     update and write out the data again.
 
-import os
+from os import join, listdir
 import codecs
 import re
 from lxml import etree
-from THLXml import *
+from THLXml import Catalog
+from THLXML.Functions import getDateTime
 
-sep = os.sep
-datafolder = '..{0}data{0}'.format(sep)
-catpath = datafolder + 'peltsek.xml'              # Path to the catalog data
-volfolder = '..{0}source{0}'.format(sep)          # Folder where vol OCR resides
-catout = datafolder + 'peltsek-with-lines.xml'    # Path to write new catalog
-vol3src =  volfolder + 'nying-gyud-vol03_than_ygNTCyzRdq4u.txt'
+datafolder = join('..', 'data')
+catpath = join(datafolder,'peltsek.xml')             # Path to the catalog data
+volfolder = join('..', 'source')         # Folder where vol OCR resides
+dt = getDateTime()
+catout = join(datafolder, 'peltsek-with-lines_' + dt + '.xml')   # Path to write new catalog
+
 # Instantiate the Peltsek Catalog
 cat = XMLCatalog.Catalog(catpath, 'Peltsek')
 

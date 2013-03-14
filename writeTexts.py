@@ -6,13 +6,13 @@
 #     update and write out the data again.
 #
 #    Usage:
-#         python writeTexts.py type={bibl|text|both} path={path} start={num} end={num} texts={##,##,##,...}
+#         python writeTexts.py type={bibl|text|both|plain} path={path} start={num} end={num} texts={##,##,##,...}
 #     
 #           All params option:
 #               type = type of output (bibliographic record or full text)
 #               path = path to output folder that is subfolder of "out"
-#               start = the number of the text to start with
-#               end = the number of the text to end with
+#               start = the number of the text to start with (defaults to 1)
+#               end = the number of the text to end with (defaults to last text)
 #               texts = a comma-separated list of individual texts to process instead of start and end
 #
 ###############################################################
@@ -26,17 +26,24 @@ args= {}
 
 # Function that takes a text, output path, and type and writes that type of text file
 def writeText(t, tnum, path, typ):
+  tid = "ngb-pt-{0}-bib".format(str(tnum).zfill(4))
+  t.set("thlid", tid)
+  
   if typ == "bibl" or typ == "both":
     print "Writing {0} Tibbibl!".format(str(tnum))
-    tid = "ngb-pt-{0}-bib".format(str(tnum).zfill(4))
-    t.set("thlid", tid)
     t.writeTextBibl(path)
+    
   if typ == "text" or typ == "both":
     print "Writing {0} Text!".format(str(tnum))
-    tid = "ngb-pt-{0}-text".format(str(tnum).zfill(4))
-    t.set("thlid", tid)
     t.writeText(path)
     
+  if typ == "plain":
+    print "Writing plain text for {0}".format(str(tnum))
+    t.writeText(path, "plain")
+
+### End of writeTexts Function ####
+
+##### MAIN #######
 # Split args into a hash
 for a in sys.argv:
   if sys.argv.index(a) > 0:

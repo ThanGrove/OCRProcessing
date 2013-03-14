@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tibbibl id="ngb-tb-v001-bib" level="volume">
+<tibbibl level="volume">
     <!-- For stand-alone validation: <!DOCTYPE tibbibl SYSTEM "http://www.thlib.org/global/xml/dtds/xtibbibl3.dtd">  -->
 	<controlinfo>
-		<sysid></sysid>
-		<date id="today'"></date>
+		<sysid id="sysid"></sysid>
+		<date id="today"></date>
 		<respStmt>
 			<resp>Cataloguer</resp>
 			<name>ndg</name>
@@ -40,7 +40,7 @@
 		    <extent id="textlast" class="last">Tb.45</extent>
 		</extentdecl>
 		<extentdecl type="folio-sides">
-			<extent class="total">863</extent>
+			<extent id="sides" class="total">863</extent>
 		</extentdecl>
 		<pagination>
 			<rs type="pagination" n="start">
