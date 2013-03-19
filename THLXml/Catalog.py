@@ -83,10 +83,10 @@ class Catalog():
       self.textcount = len(self.texts)
       self.volcount = len(self.vols)
       
-      print "Automatically fixing missing paginations and line numbers."
-      print "To disable this comment out Catalog.py line 92."
-      self.fixMissingPaginations()
-      self.fixMissingPaginations() # hack to cover those ending paginations where there is not start pagination for following texts
+      #print "Automatically fixing missing paginations and line numbers."
+      #print "To disable this, comment out Catalog.py line 88 and 89."
+      #self.fixMissingPaginations()
+      #self.fixMissingPaginations() # hack to cover those ending paginations where there is not start pagination for following texts
     except IOError:
       print "\nError! '{0}' is not a valid file name. Cannot continue. Sorry!".format(path)
       
@@ -224,6 +224,8 @@ class Catalog():
               pendpts = pend.split('.')
               if pendpts[0] == startpg and len(pendpts) > 1:
                 linenm = "." + pendpts[1]
+              elif int(pendpts[0]) == int(startpg) - 1 and int(pendpts[1]) == 6:
+                linenm = ".1"
           t.find("startpage").text = startpg + linenm
           spct += 1
           tlist[tid] = 1
@@ -253,6 +255,8 @@ class Catalog():
               nstpts = nst.split('.')
               if nstpts[0] == endpage and len(nstpts) > 1:
                 linenm = "." + nstpts[1]
+              if int(nstpts[0]) == int(endpage) + 1 and int(nstpts[1]) == 1:
+                linenm = ".6"
           t.find("endpage").text = endpage + linenm
           enct += 1
           tlist[tid] = 1

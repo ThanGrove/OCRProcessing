@@ -3,7 +3,7 @@
 import re
 from lxml import etree
 from copy import deepcopy
-from . import Vars
+import Vars, Text
 
 def is_number(s):
   try:
@@ -94,8 +94,9 @@ class Vol():
     """Returns a stand-alone XML document with root <xpage> containing the page of text desired along with milestones"""
     # Could add option to not include milestones and also one just to return plain text
     page = etree.Element('xpage') # make a new xpage element to return
-    if isinstance(tx, XMLText.TextCat):
-      page.set('tnum', tx.key)
+    # if isinstance(tx, THLXml.Text):
+    #  page.set('tnum', tx.key)
+    #page.set('tnum', tx.key)
     t = self.tree                 # cataloge tree = t
     # Finde the milestone
     xp = '/*//milestone[@unit="page" and @n="' + str(pn) + '"]' # Xpath to find page milestone with nvalue = pn

@@ -24,15 +24,16 @@ cat = Catalog.Catalog(catpath, 'Peltsek')
 cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
 
 
-outpath = join(my_path, 'out', 'ngb-pt-titles_wylie.txt')
+outpath = join(my_path, 'out', 'ngb-pt-titles_wylie_new.txt')
 
 ## Write vol bibs
 #cat.write(join("out", "vols"), "volbibs")
 
-fout = open(outpath, 'w', encoding='utf-8')
+#fout = open(outpath, 'w', encoding='utf-8')
 
 for t in cat.iterTexts():
-  fout.write(cat.tibToWylie(t.title) + "\n")
+  print t.key, 
+  #fout.write(cat.tibToWylie(t.title) + "\n")
 #  ln = t.key + "," + t.startpage + "," + t.endpage + "\n"
   
-fout.close()
+#fout.close()
