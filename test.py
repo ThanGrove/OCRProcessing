@@ -23,6 +23,10 @@ catpath = join(my_path, 'data', 'peltsek-with-lines.xml')
 cat = Catalog.Catalog(catpath, 'Peltsek')
 cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
 
+for t in cat.iterTexts("xml"):
+  print type(t)
+  print t.find('startpage').text
+  sys.exit(0)
 
 outpath = join(my_path, 'out', 'ngb-pt-titles_wylie_new.txt')
 

@@ -4,20 +4,34 @@
 #     gaps in the pagination.
 
 import os
-from os.path import dirname, join
+from os.path import abspath, dirname, join
 import codecs
 import re
 import sys
 from lxml import etree
 from THLXml import Catalog, OCRVolume, Text, Functions
 
-my_path = dirname(__file__)
+my_path = abspath(dirname(__file__))
+print "mypath is: {0}".format(my_path)
+
 datafolder = join(my_path, '..', 'data')
-catfileName = 'peltsek-with-lines_2013-03-19-103026.xml'
+
+# Find latest pelstek-with-lines_{date} file and use that for the source catfile
+pwlfiles = []
+for f in os.listdir(datafolder):
+  if "peltsek-with-lines_" in f:
+    pwlfiles.append(f)
+pwlfiles.sort()
+lastpwlfile = pwlfiles[-1]
+catfileName = lastpwlfile #'peltsek-with-lines_2013-03-21-154826.xml' Or customize which file to use here
+
+# Set cat and folder and out paths
 catpath = join(datafolder, catfileName)             # Path to the catalog data
 volfolder = join(my_path, '..', 'volsource')         # Folder where vol OCR resides
 dt = Functions.getDateTime()
 outpath = join(my_path, '..', 'output', 'peltsek-page-issues_' + dt + '.log')   # Path to write new catalog
+
+print "The output file is at: {0}".format(outpath)
 
 # Instantiate the Peltsek Catalog
 cat = Catalog.Catalog(catpath, 'Peltsek')
@@ -34,6 +48,7 @@ out.write("Catalog XML File: {0}\n***********************************\n\n".forma
 for txt in cat.iterTexts():
   tlist.append([txt.key, txt.vnum, txt.startpage, txt.endpage])
 
+# Go through Text list and find where previous [ptext] end page and this [txt] start page are not sequential
 for n in range(len(tlist)):
   txt = tlist[n]
   if n > 0:
@@ -61,5 +76,5 @@ out.write("\n--------------------------------------\nThere were {0} discrepencie
 
 print "There were {0} discrepencies.".format(dct)
 out.close()
-          
+
   

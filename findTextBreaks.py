@@ -70,15 +70,32 @@ for f in os.listdir(volfolder):
     endpg = ltext.find('endpage').text
     if endpg == None:
       endpg = vtxtlist[-1]['end']
-    if "." not in endpg:
+    if endpg is not None and "." not in endpg:
       endpg = endpg + ".6"
     ltext.find('endpage').text = endpg
     
   except etree.XMLSyntaxError:
     print "XML Error for volume {0}".format(vnum)
-  except Exception:
-    print "Generic error for volume {0}".format(vnum)
-    print sys.exc_info()[0]
+  #except Exception:
+  #  print "Generic error for volume {0}".format(vnum)
+  #  print sys.exc_info()
+  #  sys.exc_info()[2].print_stack()
     
-  # Write out the catalog file with updated line numbers
+# Run routine to fix missing paginations
+cat.fixMissingPaginations()
+
+# Run final check to fix problem where one text ends at e.g. 95.1 and next text starts 96.1
+# Assume that 95.1 should be 95.6
+prevTxt = None
+for txt in cat.iterTexts("xml"):
+  if prevTxt is not None:
+    tst = txt.find('startpage')
+    ptend =  prevTxt.find('endpage')
+    if tst is not None and ptend is not None:
+      if ".1" in tst.text and ".1" in ptend.text:
+        if int(float(tst.text)) == int(float(ptend.text)) + 1:
+          ptend.text = str(int(float(ptend.text))) + ".6"
+  prevTxt = txt
+
+# Write out the catalog file with updated line numbers
 cat.write(catout)

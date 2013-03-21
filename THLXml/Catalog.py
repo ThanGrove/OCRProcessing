@@ -191,7 +191,7 @@ class Catalog():
         vobj['tcount'] = vol.find('textcount').text
         vsstr = "vol" + str(vnum).zfill(2)
         lasttext = self.getText(vobj['texts'][-1])
-        if lasttext:
+        if lasttext and isinstance(lasttext.endpage, str):
           vobj['lastpage'] = int(float(lasttext.endpage))
         for f in listdir(self.voldir):
           if vsstr in f:
@@ -332,10 +332,13 @@ class Catalog():
       out.append(t.getData(listtype, tibformat))
     return out
       
-  def iterTexts(self):
+  def iterTexts(self, ttype="object"):
     txts = self.texts
     for k, txt in txts.iteritems():
-      yield Text.Text(txt, self)
+      if ttype == "xml":
+        yield txt
+      else:
+        yield Text.Text(txt, self)
       
   def iterVolumes(self):
     vols = self.vols
