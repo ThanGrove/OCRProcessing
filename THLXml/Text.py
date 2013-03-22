@@ -10,6 +10,7 @@ from urllib import urlopen, urlencode
 from copy import deepcopy
 import time
 import datetime
+import sys
 
 def tibToWylie(txt):
   url = 'http://local.thlib.org/cgi-bin/thl/lbow/wylie.pl?'  # Only Local
@@ -286,6 +287,7 @@ class Text(object):
     # Output an TEI XML version of the text
     else: 
       name = self.thlid + ".xml"
+      
       # Read in the template tibbibl
       template = join(tmpl_path, 'text.xml')
       doc = etree.parse(template)

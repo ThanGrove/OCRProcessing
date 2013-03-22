@@ -26,14 +26,16 @@ args= {}
 
 # Function that takes a text, output path, and type and writes that type of text file
 def writeText(t, tnum, path, typ):
-  tid = "ngb-pt-{0}-bib".format(str(tnum).zfill(4))
-  t.set("thlid", tid)
   
   if typ == "bibl" or typ == "both":
+    tid = "ngb-pt-{0}-bib".format(str(tnum).zfill(4))
+    t.set("thlid", tid)
     print "Writing {0} Tibbibl!".format(str(tnum))
     t.writeTextBibl(path)
     
   if typ == "text" or typ == "both":
+    tid = "ngb-pt-{0}-text".format(str(tnum).zfill(4))
+    t.set("thlid", tid)
     print "Writing {0} Text!".format(str(tnum))
     t.writeText(path)
     
@@ -85,13 +87,15 @@ catpath = join(my_path, 'data', 'peltsek-with-lines.xml')
 cat = Catalog.Catalog(catpath, 'Peltsek')
 cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
 
-if not args.has_key('path'):
-  args['path'] = join(my_path, 'out')
-else:
-  args['path'] = join(my_path, 'out', args['path'])
-  
 if not args.has_key('type'):
   args['type'] = 'both'
+  
+if not args.has_key('path'):
+  args['path'] = args['type']
+  if not args['type'] == "both":
+    args['path'] = args['path'] + "s"
+  
+args['path'] = join(my_path, 'out', args['path'])
   
 if args.has_key('texts'):
   txts = args['texts'].split(',')

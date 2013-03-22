@@ -6,7 +6,7 @@
 ###############################################################
 
 from os.path import dirname, join
-from THLXml import Catalog
+from THLXml import Catalog, Functions
 from codecs import open
 import sys
 import time
@@ -18,9 +18,10 @@ catpath = join(my_path, 'data', 'peltsek-with-lines.xml')
 cat = Catalog.Catalog(catpath, 'Peltsek')
 
 cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
+dt = Functions.getDateTime()
+outfile = join(my_path, 'out', 'ngb-pt-cat_{0}.xml'.format(dt))
 
-outfile = join(my_path, 'out', 'ngb-pt-vols.xml')
-
+print "Writing new catalog to {0}".format(outfile)
 #sys.stdout = open(outfile, 'w', encoding='utf-8')
 
 cat.write(outfile, 'vols')
