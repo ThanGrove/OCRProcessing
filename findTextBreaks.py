@@ -99,3 +99,4 @@ for txt in cat.iterTexts("xml"):
 
 # Write out the catalog file with updated line numbers
 cat.write(catout)
+print "Output made to: {0}".format(catout)

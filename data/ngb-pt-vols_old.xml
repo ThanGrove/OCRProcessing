@@ -1,12 +1,10 @@
 <vollist>
-    <!-- original: ngb-pt-vols_2013-03-22-095122 -->
     <volume id="ngb-pt-v01">
         <num>1</num>
         <name lang="tib">ཀ</name>
         <name lang="wylie">ka</name>
         <dox>ཀ༽ཨ་ཏི་ཡོ་གའི་སྐོར་ལ།ཡང་ཏིའི་སྐོར། སྤྱི་ཏིའི་སྐོར། མན་ངག་གི་སྡེའི་སྐོར། ཀློང་སྡེའི་སྐོར། སེམས་སྡེའི་སྐོར་དང་ལྔ་ལས།༡༽ ཡང་ཏིའི་སྐོར།</dox>
         <textcount>19</textcount>
-        <pages>699</pages>
     </volume>
     <volume id="ngb-pt-v02">
         <num>2</num>
@@ -14,7 +12,6 @@
         <name lang="wylie">kha</name>
         <dox>ཁ༽</dox>
         <textcount>6</textcount>
-        <pages>754</pages>
     </volume>
     <volume id="ngb-pt-v03">
         <num>3</num>
@@ -22,7 +19,6 @@
         <name lang="wylie">ga</name>
         <dox>ག༽</dox>
         <textcount>24</textcount>
-        <pages>730</pages>
     </volume>
     <volume id="ngb-pt-v04">
         <num>4</num>
@@ -30,7 +26,6 @@
         <name lang="wylie">nga</name>
         <dox>ང༽༣༽ མན་ངག་གི་སྡེའི་སྐོར།ཤིན་ཏུ་ཟབ་པ་ཡང་གསང་བླ་མེད་ཀྱི་སྐོར། གསང་བའི་སྐོར། ཕྱིའི་སྐོར། ནང་གི་སྐོར་དང་བཞི་ལས།ཡང་གསང་བླ་མེད་ཀྱི་སྐོར།</dox>
         <textcount>5</textcount>
-        <pages>751</pages>
     </volume>
     <volume id="ngb-pt-v05">
         <num>5</num>
@@ -38,7 +33,6 @@
         <name lang="wylie">ca</name>
         <dox>ཅ༽</dox>
         <textcount>11</textcount>
-        <pages>723</pages>
     </volume>
     <volume id="ngb-pt-v06">
         <num>6</num>
@@ -46,7 +40,6 @@
         <name lang="wylie">cha</name>
         <dox>ཆ༽</dox>
         <textcount>22</textcount>
-        <pages>999</pages>
     </volume>
     <volume id="ngb-pt-v07">
         <num>7</num>
@@ -54,7 +47,6 @@
         <name lang="wylie">ja</name>
         <dox>ཇ༽</dox>
         <textcount>15</textcount>
-        <pages>642</pages>
     </volume>
     <volume id="ngb-pt-v08">
         <num>8</num>
@@ -62,7 +54,6 @@
         <name lang="wylie">nya</name>
         <dox>ཉ༽(༥) སེམས་སྡེའི་སྐོར།ཀུན་བྱེད་རྒྱལ་པོའི་སྐོར། སེམས་སྨད་བཅོ་བརྒྱད་ཀྱི་སྐོར། སེམས་སྡེའི་སྐོར་དང་གསུམ་ལས།(༡)ཀུན་བྱེད་རྒྱལ་པོའི་སྐོར།</dox>
         <textcount>23</textcount>
-        <pages>781</pages>
     </volume>
     <volume id="ngb-pt-v09">
         <num>9</num>
@@ -70,7 +61,6 @@
         <name lang="wylie">ta</name>
         <dox>ཏ༽</dox>
         <textcount>20</textcount>
-        <pages>891</pages>
     </volume>
     <volume id="ngb-pt-v10">
         <num>10</num>
@@ -78,7 +68,6 @@
         <name lang="wylie">tha</name>
         <dox>ཐ༽</dox>
         <textcount>2</textcount>
-        <pages>765</pages>
     </volume>
     <volume id="ngb-pt-v11">
         <num>11</num>
@@ -86,7 +75,6 @@
         <name lang="wylie">da</name>
         <dox>ད༽</dox>
         <textcount>12</textcount>
-        <pages>729</pages>
     </volume>
     <volume id="ngb-pt-v12">
         <num>12</num>
@@ -94,7 +82,6 @@
         <name lang="wylie">na</name>
         <dox>ན༽</dox>
         <textcount>11</textcount>
-        <pages>790</pages>
     </volume>
     <volume id="ngb-pt-v13">
         <num>13</num>
@@ -102,7 +89,6 @@
         <name lang="wylie">pa</name>
         <dox>པ༽</dox>
         <textcount>6</textcount>
-        <pages>813</pages>
     </volume>
     <volume id="ngb-pt-v14">
         <num>14</num>
@@ -110,7 +96,6 @@
         <name lang="wylie">pha</name>
         <dox>ཕ༽</dox>
         <textcount>4</textcount>
-        <pages>763</pages>
     </volume>
     <volume id="ngb-pt-v15">
         <num>15</num>
@@ -118,7 +103,6 @@
         <name lang="wylie">ba</name>
         <dox>བ༽</dox>
         <textcount>2</textcount>
-        <pages>709</pages>
     </volume>
     <volume id="ngb-pt-v16">
         <num>16</num>
@@ -126,7 +110,6 @@
         <name lang="wylie">ma</name>
         <dox>མ༽</dox>
         <textcount>4</textcount>
-        <pages>710</pages>
     </volume>
     <volume id="ngb-pt-v17">
         <num>17</num>
@@ -134,7 +117,6 @@
         <name lang="wylie">tsa</name>
         <dox>ཙ༽ </dox>
         <textcount>16</textcount>
-        <pages>731</pages>
     </volume>
     <volume id="ngb-pt-v18">
         <num>18</num>
@@ -142,7 +124,6 @@
         <name lang="wylie">tsha</name>
         <dox>ཚ༽</dox>
         <textcount>12</textcount>
-        <pages>831</pages>
     </volume>
     <volume id="ngb-pt-v19">
         <num>19</num>
@@ -150,7 +131,6 @@
         <name lang="wylie">dza</name>
         <dox>ཛ༽</dox>
         <textcount>2</textcount>
-        <pages>700</pages>
     </volume>
     <volume id="ngb-pt-v20">
         <num>20</num>
@@ -158,7 +138,6 @@
         <name lang="wylie">wa</name>
         <dox>ཝ༽</dox>
         <textcount>7</textcount>
-        <pages>784</pages>
     </volume>
     <volume id="ngb-pt-v21">
         <num>21</num>
@@ -166,7 +145,6 @@
         <name lang="wylie">zha</name>
         <dox>ཞ༽</dox>
         <textcount>21</textcount>
-        <pages>699</pages>
     </volume>
     <volume id="ngb-pt-v22">
         <num>22</num>
@@ -174,7 +152,6 @@
         <name lang="wylie">za</name>
         <dox>ཟ༽༢༽ པདྨ་གསུང་གི་སྐོར།</dox>
         <textcount>7</textcount>
-        <pages>809</pages>
     </volume>
     <volume id="ngb-pt-v23">
         <num>23</num>
@@ -182,7 +159,6 @@
         <name lang="wylie">'a</name>
         <dox>འ༽</dox>
         <textcount>11</textcount>
-        <pages>599</pages>
     </volume>
     <volume id="ngb-pt-v24">
         <num>24</num>
@@ -190,7 +166,6 @@
         <name lang="wylie">ya</name>
         <dox>ཡ༽</dox>
         <textcount>2</textcount>
-        <pages>754</pages>
     </volume>
     <volume id="ngb-pt-v25">
         <num>25</num>
@@ -198,7 +173,6 @@
         <name lang="wylie">ra</name>
         <dox>ར༽</dox>
         <textcount>12</textcount>
-        <pages>754</pages>
     </volume>
     <volume id="ngb-pt-v26">
         <num>26</num>
@@ -206,7 +180,6 @@
         <name lang="wylie">la</name>
         <dox>ལ༽(༥)ཕུར་པ་ཕྲིན་ལས་ཀྱི་སྐོར།</dox>
         <textcount>9</textcount>
-        <pages>767</pages>
     </volume>
     <volume id="ngb-pt-v27">
         <num>27</num>
@@ -214,7 +187,6 @@
         <name lang="wylie">sha</name>
         <dox>ཤ༽</dox>
         <textcount>23</textcount>
-        <pages>634</pages>
     </volume>
     <volume id="ngb-pt-v28">
         <num>28</num>
@@ -222,7 +194,6 @@
         <name lang="wylie">sa</name>
         <dox>ས༽</dox>
         <textcount>7</textcount>
-        <pages>606</pages>
     </volume>
     <volume id="ngb-pt-v29">
         <num>29</num>
@@ -230,7 +201,6 @@
         <name lang="wylie">ha</name>
         <dox>ཧ༽</dox>
         <textcount>9</textcount>
-        <pages>675</pages>
     </volume>
     <volume id="ngb-pt-v30">
         <num>30</num>
@@ -238,7 +208,6 @@
         <name lang="wylie">a</name>
         <dox>ཨ༽</dox>
         <textcount>19</textcount>
-        <pages>766</pages>
     </volume>
     <volume id="ngb-pt-v31">
         <num>31</num>
@@ -246,7 +215,6 @@
         <name lang="wylie">ki</name>
         <dox>ཀི༽༧༽ བསྟན་སྲུང་མཆོད་བསྟོད་དང་དྲག་སྔགས་ཀྱི་སྐོར།</dox>
         <textcount>13</textcount>
-        <pages>706</pages>
     </volume>
     <volume id="ngb-pt-v32">
         <num>32</num>
@@ -254,7 +222,6 @@
         <name lang="wylie">khi</name>
         <dox>ཁི༽</dox>
         <textcount>15</textcount>
-        <pages>672</pages>
     </volume>
     <volume id="ngb-pt-v33">
         <num>33</num>
@@ -262,7 +229,6 @@
         <name lang="wylie">gi</name>
         <dox>གི༽</dox>
         <textcount>13</textcount>
-        <pages>623</pages>
     </volume>
     <volume id="ngb-pt-v34">
         <num>34</num>
@@ -270,7 +236,6 @@
         <name lang="wylie">ngi</name>
         <dox>ངི༽</dox>
         <textcount>23</textcount>
-        <pages>705</pages>
     </volume>
     <volume id="ngb-pt-v35">
         <num>35</num>
@@ -278,7 +243,6 @@
         <name lang="wylie">ci</name>
         <dox>ཅི༽</dox>
         <textcount>19</textcount>
-        <pages>689</pages>
     </volume>
     <volume id="ngb-pt-v36">
         <num>36</num>
@@ -286,7 +250,6 @@
         <name lang="wylie">chi</name>
         <dox>ཆི༽</dox>
         <textcount>23</textcount>
-        <pages>716</pages>
     </volume>
     <volume id="ngb-pt-v37">
         <num>37</num>
@@ -294,7 +257,6 @@
         <name lang="wylie">ji</name>
         <dox>ཇི༽</dox>
         <textcount>49</textcount>
-        <pages>707</pages>
     </volume>
     <volume id="ngb-pt-v38">
         <num>38</num>
@@ -302,7 +264,6 @@
         <name lang="wylie">nyi</name>
         <dox>ཉི༽</dox>
         <textcount>28</textcount>
-        <pages>714</pages>
     </volume>
     <volume id="ngb-pt-v39">
         <num>39</num>
@@ -310,7 +271,6 @@
         <name lang="wylie">ti</name>
         <dox>ཏི༽</dox>
         <textcount>34</textcount>
-        <pages>792</pages>
     </volume>
     <volume id="ngb-pt-v40">
         <num>40</num>
@@ -318,7 +278,6 @@
         <name lang="wylie">thi</name>
         <dox>ཐི༽</dox>
         <textcount>9</textcount>
-        <pages>760</pages>
     </volume>
     <volume id="ngb-pt-v41">
         <num>41</num>
@@ -326,7 +285,6 @@
         <name lang="wylie">di</name>
         <dox>དི༽</dox>
         <textcount>13</textcount>
-        <pages>833</pages>
     </volume>
     <volume id="ngb-pt-v42">
         <num>42</num>
@@ -334,7 +292,6 @@
         <name lang="wylie">ni</name>
         <dox>ནི༽</dox>
         <textcount>10</textcount>
-        <pages>747</pages>
     </volume>
     <volume id="ngb-pt-v43">
         <num>43</num>
@@ -342,7 +299,6 @@
         <name lang="wylie">pi</name>
         <dox>པི༽</dox>
         <textcount>27</textcount>
-        <pages>744</pages>
     </volume>
     <volume id="ngb-pt-v44">
         <num>44</num>
@@ -350,7 +306,6 @@
         <name lang="wylie">phi</name>
         <dox>ཕི༽</dox>
         <textcount>21</textcount>
-        <pages>765</pages>
     </volume>
     <volume id="ngb-pt-v45">
         <num>45</num>
@@ -358,7 +313,6 @@
         <name lang="wylie">bi</name>
         <dox>བི༽</dox>
         <textcount>24</textcount>
-        <pages>752</pages>
     </volume>
     <volume id="ngb-pt-v46">
         <num>46</num>
@@ -366,7 +320,6 @@
         <name lang="wylie">mi</name>
         <dox>མི༽</dox>
         <textcount>12</textcount>
-        <pages>886</pages>
     </volume>
     <volume id="ngb-pt-v47">
         <num>47</num>
@@ -374,7 +327,6 @@
         <name lang="wylie">tsi</name>
         <dox>ཙི༽</dox>
         <textcount>14</textcount>
-        <pages>729</pages>
     </volume>
     <volume id="ngb-pt-v48">
         <num>48</num>
@@ -382,7 +334,6 @@
         <name lang="wylie">tshi</name>
         <dox>ཚི༽</dox>
         <textcount>26</textcount>
-        <pages>728</pages>
     </volume>
     <volume id="ngb-pt-v49">
         <num>49</num>
@@ -390,7 +341,6 @@
         <name lang="wylie">dzi</name>
         <dox>ཛི༽</dox>
         <textcount>30</textcount>
-        <pages>732</pages>
     </volume>
     <volume id="ngb-pt-v50">
         <num>50</num>
@@ -398,7 +348,6 @@
         <name lang="wylie">wi</name>
         <dox>ཝི༽</dox>
         <textcount>40</textcount>
-        <pages>696</pages>
     </volume>
     <volume id="ngb-pt-v51">
         <num>51</num>
@@ -406,7 +355,6 @@
         <name lang="wylie">zhi</name>
         <dox>ཞི༽</dox>
         <textcount>35</textcount>
-        <pages>730</pages>
     </volume>
     <volume id="ngb-pt-v52">
         <num>52</num>
@@ -414,7 +362,6 @@
         <name lang="wylie">zi</name>
         <dox>ཟི༽</dox>
         <textcount>20</textcount>
-        <pages>765</pages>
     </volume>
     <volume id="ngb-pt-v53">
         <num>53</num>
@@ -422,7 +369,6 @@
         <name lang="wylie">'i</name>
         <dox>འི༽</dox>
         <textcount>10</textcount>
-        <pages>527</pages>
     </volume>
     <volume id="ngb-pt-v54">
         <num>54</num>
@@ -430,7 +376,6 @@
         <name lang="wylie">yi</name>
         <dox>ཡི༽</dox>
         <textcount>26</textcount>
-        <pages>689</pages>
     </volume>
     <volume id="ngb-pt-v55">
         <num>55</num>
@@ -438,7 +383,6 @@
         <name lang="wylie">ri</name>
         <dox>རི༽</dox>
         <textcount>6</textcount>
-        <pages>691</pages>
     </volume>
     <volume id="ngb-pt-v56">
         <num>56</num>
@@ -446,7 +390,6 @@
         <name lang="wylie">li</name>
         <dox>ལི༽</dox>
         <textcount>7</textcount>
-        <pages>707</pages>
     </volume>
     <volume id="ngb-pt-v57">
         <num>57</num>
@@ -454,7 +397,6 @@
         <name lang="wylie">d+hI</name>
         <dox>དྷཱི༽</dox>
         <textcount>1</textcount>
-        <pages>690</pages>
     </volume>
     <volume id="ngb-pt-v58">
         <num>58</num>
@@ -462,6 +404,5 @@
         <name lang="wylie">hrI</name>
         <dox>ཧྲཱི༽</dox>
         <textcount>1</textcount>
-        <pages>927</pages>
     </volume>
 </vollist>

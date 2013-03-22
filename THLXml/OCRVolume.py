@@ -21,9 +21,13 @@ class Vol():
   # 1: rgya gar skad du, 2:  gar skad du/, 3: rdzogs so//, 4: phyag tshal
   txtdelims = [u'རྒྱ་གར་སྐད་དུ', u'གར་སྐད་དུ།']  
   
-  def __init__(self, path, number):
+  def __init__(self, path, number=None):
       """Takes a path to an XML document and parses it, reading in a volume's ocr document"""
       try:
+        if number is None:
+          match = re.search('nying-gyud-vol(\d+)_', path)
+          if match:
+            number = match.group(1)
         self.number = number
         self.tree = etree.parse(path)
         

@@ -387,5 +387,11 @@ class Catalog():
       else:
         print "Could not find attribute to remove with xpath: {0}".format(xp)
         
+  def renumberTexts(self):
+    tnum = 0
+    for t in self.iterTexts("xml"):
+      tnum += 1
+      t.find("key").text = str(tnum)
+      
   
 #### End of XMLCat Class ###
