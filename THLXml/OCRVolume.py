@@ -49,7 +49,9 @@ class Vol():
           match = re.search('_(\d+)\.tif', nval)
           if match and pel is not None and nextm is not None:
             pnum = int(match.group(1))
-            pnval = pel.get('n').split('.')[0]
+            pnval = 0
+            if pel.get('n'):
+              pnval = pel.get('n').split('.')[0]
             nnval = nextm.get('n').split('.')[0]
             
             nmatch = re.search('out_(\d+)', natn)
@@ -130,8 +132,16 @@ class Vol():
     t = self.tree
     xp = '/*//milestone[@unit="line" and @n="' + str(pn) + '.' + str(ln) + '"]' # Xpath to find page milestone with nvalue
     query = t.xpath(xp)
-    # Use regex to eliminate multiple whitespaces and line returns
-    return re.sub(re.compile(r'\s+'), ' ', query[0].tail) if len(query) > 0 else False
+    if len(query) > 0:
+      lntxt = query[-1].tail # take last occurrence for situations when more than one result appears. 
+      # Use regex to eliminate multiple whitespaces and line returns from all lines 
+      lntxt = re.sub(r'\s+', ' ', lntxt)
+      # yig mgo from beginning of first lines
+      if ln == 1:
+        lntxt = re.sub(u'^༄༅། །', '', lntxt)
+      return lntxt
+    else:
+      return False
   
   def getRange(self, st, en, el="div1"):
     """Get a range of text in the volume and return in the element of ones choice"""

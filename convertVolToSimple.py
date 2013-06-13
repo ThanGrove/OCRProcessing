@@ -75,8 +75,8 @@ vol = OCRVolume.Vol(join(volpath, vf), vnum) # Open Volume file
 voutpath = join(my_path, 'out', 'vols', 'ngb-pt-v{0}-tmp.xml'.format(vnum.zfill(3)))
 
 vout = codecs.open(voutpath, 'w', encoding='utf-8')
-
 vtoc = cat.getVolumeTOC(vnum, "list")
+
 vstart = vtoc[0]["start"]
 vstln = vstart[-1]
 vstart = float(vstart)
@@ -95,7 +95,8 @@ vout.write(" -->\n")
 
 isstart = 0
 vout.write('[ngb-pt-{0}:start]'.format(vtoc[0]["tnum"].zfill(4)))
-for pn in range(int(vstart),int(vend) + 1):
+
+for pn in range(int(vstart), int(vend) + 1):
   print "Doing page {0}".format(pn)
   vout.write('[{0}]'.format(pn) + "\n")
   for ln in range(1,7):
@@ -103,7 +104,6 @@ for pn in range(int(vstart),int(vend) + 1):
     if lntxt:
       #print "{0}, {1}, {2}, {3}".format(n, len(vtoc), vtoc[n]["start"], str(pn) + "." + str(ln))
       if n < len(vtoc) and vtoc[n]["start"] == str(pn) + "." + str(ln):
-        print "here"
         breaktxt = "[ngb-pt-{0}:end]\n[ngb-pt-{1}:start]".format(vtoc[n - 1]["tnum"].zfill(4), vtoc[n]["tnum"].zfill(4))
         lntxt = findTextBreak(lntxt, breaktxt)
         n += 1

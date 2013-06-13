@@ -293,6 +293,7 @@ class Catalog():
       return None
   
   def getVolumeTOC(self, n, method='plain'):
+    n = int(n)
     voltoc = []
     if self.vols.has_key(n):
       vol = self.getVolume(n)
