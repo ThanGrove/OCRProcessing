@@ -18,7 +18,7 @@
 ###############################################################
 
 from os.path import dirname, join
-from THLXml import Catalog
+from OCRXml import Catalog
 import sys
 import time
 

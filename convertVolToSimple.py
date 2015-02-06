@@ -16,7 +16,7 @@ import sys, time, re, codecs
 from os.path import dirname, join
 from os import listdir, remove
 from lxml import etree
-from THLXml import Catalog, OCRVolume, Text, Functions
+from OCRXml import Catalog, OCRVolume, Text, Functions
 
 
 def findTextBreak(ln, btxt):

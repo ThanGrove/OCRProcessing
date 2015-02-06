@@ -9,7 +9,7 @@ import codecs
 import re
 import sys
 from lxml import etree
-from THLXml import Catalog, OCRVolume, Text, Functions
+from OCRXml import Catalog, OCRVolume, Text, Functions
 
 my_path = dirname(__file__)
 datafolder = join(my_path, '..', 'data')

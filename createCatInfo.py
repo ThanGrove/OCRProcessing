@@ -6,7 +6,7 @@
 ###############################################################
 
 from os.path import dirname, join
-from THLXml import Catalog
+from OCRXml import Catalog
 from codecs import open
 import sys
 import time

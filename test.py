@@ -4,7 +4,7 @@
 #     update and write out the data again.
 
 from os.path import dirname, join
-from THLXml import *
+from OCRXml import *
 import sys
 from codecs import open
 

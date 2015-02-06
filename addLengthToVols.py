@@ -5,7 +5,7 @@
 import os
 from os.path import dirname, join
 from lxml import etree
-from THLXml import *
+from OCRXml import *
 import sys
 from codecs import open
 

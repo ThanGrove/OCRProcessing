@@ -9,7 +9,7 @@ import codecs
 import re
 import sys
 from lxml import etree
-from THLXml import Catalog, OCRVolume, Text, Functions
+from OCRXml import Catalog, OCRVolume, Text, Functions
 
 my_path = abspath(dirname(__file__))
 print "mypath is: {0}".format(my_path)

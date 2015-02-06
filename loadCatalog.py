@@ -7,7 +7,7 @@ import os
 import codecs
 import re
 from lxml import etree
-from THLXml import *
+from OCRXml import *
 
 sep = os.sep
 datafolder = '..{0}data{0}'.format(sep)

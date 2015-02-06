@@ -11,7 +11,7 @@ from os.path import dirname, join
 from os import listdir
 import sys
 from codecs import open
-from THLXml import *
+from OCRXml import *
 import time
 from re import search
 
