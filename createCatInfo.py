@@ -17,7 +17,7 @@ my_path = dirname(__file__)
 catpath = join(my_path, 'data', 'peltsek-with-lines.xml')
 cat = Catalog.Catalog(catpath, 'Peltsek')
 
-cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
+cat.import_vol_info(join('data', 'ngb-pt-vols.xml'))
 
 
 outfile = join(my_path, 'out', 'ngb-pt-vol-dox.txt')
@@ -28,7 +28,7 @@ fout = open(outfile, 'w', encoding='utf-8')
 print cat.vols.keys()
 for k in cat.vols.keys():
   print "Doing volume {0}".format(k)
-  v = cat.getVolume(k)
+  v = cat.get_volume(k)
   fout.write(v["dox"] + "\n")
   
 fout.close()

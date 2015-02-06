@@ -2,7 +2,7 @@
 def loadPeltsek():
   catpath = join(data_path, 'peltsek-with-lines.xml')
   cat = Catalog(catpath, 'Peltsek')
-  cat.importVolInfo(join(data_path, 'ngb-pt-vols.xml'))
+  cat.import_vol_info(join(data_path, 'ngb-pt-vols.xml'))
   return cat
 
 def getDateTime():

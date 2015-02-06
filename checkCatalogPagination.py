@@ -36,7 +36,7 @@ print "The output file is at: {0}".format(outpath)
 # Instantiate the Peltsek Catalog
 cat = Catalog.Catalog(catpath, 'Peltsek')
 
-cat.importVolInfo(join(datafolder, 'ngb-pt-vols.xml'))
+cat.import_vol_info(join(datafolder, 'ngb-pt-vols.xml'))
 
 tlist = []
 dct = 0
@@ -45,7 +45,7 @@ out = codecs.open(outpath, 'w', encoding='utf-8')
 out.write("************ Pagination Checking for Pelstek Catalog ****************\n")
 out.write("Catalog XML File: {0}\n***********************************\n\n".format(catfileName))
 
-for txt in cat.iterTexts():
+for txt in cat.iter_texts():
   tlist.append([txt.key, txt.vnum, txt.startpage, txt.endpage])
 
 # Go through Text list and find where previous [ptext] end page and this [txt] start page are not sequential

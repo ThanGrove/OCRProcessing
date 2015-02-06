@@ -21,9 +21,9 @@ for a in sys.argv:
 my_path = dirname(__file__)
 catpath = join(my_path, 'data', 'peltsek-with-lines.xml')
 cat = Catalog.Catalog(catpath, 'Peltsek')
-cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
+cat.import_vol_info(join('data', 'ngb-pt-vols.xml'))
 
-for t in cat.iterTexts("xml"):
+for t in cat.iter_texts("xml"):
   print type(t)
   print t.find('startpage').text
   sys.exit(0)
@@ -35,7 +35,7 @@ outpath = join(my_path, 'out', 'ngb-pt-titles_wylie_new.txt')
 
 #fout = open(outpath, 'w', encoding='utf-8')
 
-for t in cat.iterTexts():
+for t in cat.iter_texts():
   print t.key, 
   #fout.write(cat.tibToWylie(t.title) + "\n")
 #  ln = t.key + "," + t.startpage + "," + t.endpage + "\n"

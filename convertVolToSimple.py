@@ -75,7 +75,7 @@ vol = OCRVolume.Vol(join(volpath, vf), vnum) # Open Volume file
 voutpath = join(my_path, 'out', 'vols', 'ngb-pt-v{0}-tmp.xml'.format(vnum.zfill(3)))
 
 vout = codecs.open(voutpath, 'w', encoding='utf-8')
-vtoc = cat.getVolumeTOC(vnum, "list")
+vtoc = cat.get_volume_toc(vnum, "list")
 
 vstart = vtoc[0]["start"]
 vstln = vstart[-1]
@@ -83,7 +83,7 @@ vstart = float(vstart)
 vend = vtoc[-1]["end"]
 vendln = vend[-1]
 vend = float(vend)
-volinfo = cat.getVolume(vnum)
+volinfo = cat.get_volume(vnum)
 
 print "Doing volume {0}, pages {1} to {2}".format(vnum, vstart, vend)
 n = 0

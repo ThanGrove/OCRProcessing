@@ -74,7 +74,7 @@ for vn in range(1,50):
   if vols.has_key(vkey):
     print "Volume", vols[vkey]
     vol =  OCRVolume.Vol(join(volpath, vols[vkey]), int(vkey))
-    vtoc = cat.getVolumeTOC(int(vkey), 'texts')
+    vtoc = cat.get_volume_toc(int(vkey), 'texts')
     # Iterate through texts in volume
     for t in vtoc:
       stpg = t.startpage

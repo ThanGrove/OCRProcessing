@@ -176,7 +176,7 @@ class Text(object):
     self.setTemplateVal(txml, "/*//tibid[@id='tnum']", self.key)
     # Setting Volume information
     self.setTemplateVal(txml, "/*//tibid[@id='vnum']", self.vnum)
-    vol = self.cat.getVolume(self.vnum)
+    vol = self.cat.get_volume(self.vnum)
     self.setTemplateVal(txml, "/*//altid[@id='altid']", vol['tib'], vol['wylie'])
     tinv = vol['texts'].index(int(self.key)) + 1
     self.setTemplateVal(txml, "/*//tibid[@id='tinv']", str(tinv))
@@ -268,7 +268,7 @@ class Text(object):
     if outtype == "plain":
       name = self.thlid + ".txt"
       print name
-      vol = self.cat.getVolume(self.vnum)
+      vol = self.cat.get_volume(self.vnum)
       if vol.has_key('ocrfile') and vol['ocrfile'] is not None and vol['ocrfile'] != '':
         ocrvol = OCRVolume.Vol(vol['ocrfile'], self.vnum)
         outtxt = ocrvol.getRange(self.startpage,self.endpage,'p')
@@ -296,7 +296,7 @@ class Text(object):
       self.setTemplateVal(txml, "/*//title[@id='title']", self.title, tibToWylie(self.title))
       self.setTemplateVal(txml, "/*//idno[@id='thlid']", self.thlid)
       self.setTemplateVal(txml, "/*//date[@id='today']", today)
-      vol = self.cat.getVolume(self.vnum)
+      vol = self.cat.get_volume(self.vnum)
       if vol.has_key('ocrfile') and vol['ocrfile'] is not None and vol['ocrfile'] != '':
         ocrvol = OCRVolume.Vol(vol['ocrfile'], self.vnum)
         # Get the actual text from OCR Volume and put in div1 of text template

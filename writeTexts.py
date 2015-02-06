@@ -85,7 +85,7 @@ print 'arguments: {0}'.format(args)
 # Load Peltsek Catalog with vol data.
 catpath = join(my_path, 'data', 'peltsek-with-lines.xml')   
 cat = Catalog.Catalog(catpath, 'Peltsek')
-cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
+cat.import_vol_info(join('data', 'ngb-pt-vols.xml'))
 
 if not args.has_key('type'):
   args['type'] = 'both'
@@ -101,13 +101,13 @@ if args.has_key('texts'):
   txts = args['texts'].split(',')
   for tnum in txts:
     tnum = tnum.strip()
-    txt = cat.getText(tnum)
+    txt = cat.get_text(tnum)
     if txt:
       writeText(txt, tnum, args['path'], args['type'])
 else:
   tstnum = int(args['start']) if args.has_key('start') else 1
   tennum = int(args['end']) if args.has_key('end') else int(cat.textcount)
-  for t in cat.iterTexts():
+  for t in cat.iter_texts():
     tnum = int(t.key)
     if tnum >= tstnum and tnum <= tennum:
       writeText(t, tnum, args['path'], args['type'])

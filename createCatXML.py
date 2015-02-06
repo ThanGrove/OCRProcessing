@@ -17,7 +17,7 @@ my_path = dirname(__file__)
 catpath = join(my_path, 'data', 'peltsek-with-lines.xml')
 cat = Catalog.Catalog(catpath, 'Peltsek')
 
-cat.importVolInfo(join('data', 'ngb-pt-vols.xml'))
+cat.import_vol_info(join('data', 'ngb-pt-vols.xml'))
 dt = Functions.getDateTime()
 outfile = join(my_path, 'out', 'ngb-pt-cat_{0}.xml'.format(dt))
 

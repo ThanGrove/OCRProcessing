@@ -16,7 +16,7 @@ args= {}
 my_path = dirname(__file__)
 catpath = join(my_path, 'data', 'peltsek-with-lines.xml')
 cat = Catalog.Catalog(catpath, 'Peltsek')
-tlist = cat.getTextList()
+tlist = cat.get_text_list()
 
 outfile = join(my_path, 'out', 'peltsek-textlist.csv')
 

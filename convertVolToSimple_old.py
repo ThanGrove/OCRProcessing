@@ -55,7 +55,7 @@ voutpath = join(my_path, 'out', 'vols', 'ngb-pt-v{0}.xml'.format(vnum.zfill(3)))
 
 vout = codecs.open(voutpath, 'w', encoding='utf-8')
 
-vtoc = cat.getVolumeTOC(vnum, "list")
+vtoc = cat.get_volume_toc(vnum, "list")
 lastStart = ""
 lastLine = ""
 for t in vtoc:

@@ -31,7 +31,7 @@ for f in os.listdir(volfolder):
   print "Doing volume {0}".format(vnum)
   try:
     vol = OCRVolume.Vol(volpath, vnum)  # read in the vol and create object
-    vtxtlist = cat.getVolumeTOC(vnum, 'list') # get text list for vol from catalog
+    vtxtlist = cat.get_volume_toc(vnum, 'list') # get text list for vol from catalog
     lasttext = 0
     
     # Iterate through texts in the volume
@@ -42,17 +42,17 @@ for f in os.listdir(volfolder):
         mystpg = pts[0]
       newstpg = mystpg
       tnum = int(t['key'])
-      txt = cat.getText(tnum, 'element')
+      txt = cat.get_text(tnum, 'element')
       if mystpg != None and txt != None:
         lnum = vol.textStartLine(mystpg)  # Find and assign start line for text
         if lnum == False:
           lnum = '1'
         newstpg += '.' + lnum
-        cat.getText(tnum, 'element').find('startpage').text = newstpg
+        cat.get_text(tnum, 'element').find('startpage').text = newstpg
         
         # Set end line for previous text based on this text's beginning
         if lasttext != 0:
-          lep = cat.getText(lasttext,'element').find('endpage').text
+          lep = cat.get_text(lasttext,'element').find('endpage').text
           if lep != None:
             if "." in lep:
               pts = lep.split(".")
@@ -61,12 +61,12 @@ for f in os.listdir(volfolder):
               lep = str((int(mystpg) - 1)) + ".6"
             else:
               lep += '.' + lnum
-            cat.getText(lasttext,'element').find('endpage').text = lep
+            cat.get_text(lasttext,'element').find('endpage').text = lep
         lasttext = tnum
         
     # Set end page of last text in volume
     ltnum = vtxtlist[-1]['key']
-    ltext = cat.getText(ltnum, 'element')
+    ltext = cat.get_text(ltnum, 'element')
     endpg = ltext.find('endpage').text
     if endpg == None:
       endpg = vtxtlist[-1]['end']
@@ -82,12 +82,12 @@ for f in os.listdir(volfolder):
   #  sys.exc_info()[2].print_stack()
     
 # Run routine to fix missing paginations
-cat.fixMissingPaginations()
+cat.fix_missing_paginations()
 
 # Run final check to fix problem where one text ends at e.g. 95.1 and next text starts 96.1
 # Assume that 95.1 should be 95.6
 prevTxt = None
-for txt in cat.iterTexts("xml"):
+for txt in cat.iter_texts("xml"):
   if prevTxt is not None:
     tst = txt.find('startpage')
     ptend =  prevTxt.find('endpage')
